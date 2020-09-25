@@ -8,7 +8,7 @@
     <language>ja</language>
     <lastBuildDate>Fri, 31 Jul 2020 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Theme preview</title>
+      <title>참고용 Theme preview</title>
       <link>https://linglingapp.github.io/post/hidden-post02/</link>
       <pubDate>Sat, 10 Jul 2010 00:00:00 +0800</pubDate>
       
@@ -80,9 +80,18 @@
     </item>
     
     <item>
-      <title>Shortcodes</title>
+      <title>&#39;부작용&#39;의 일본어 발음</title>
+      <link>https://linglingapp.github.io/post/side-effect/</link>
+      <pubDate>Fri, 02 Nov 2012 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/post/side-effect/</guid>
+      <description>내가 일본에 유학온지 얼마 되지 않았을 때, 같이 살던 동생이 눈이 아프다 하여 일본어를 그나마 할 수 있었던 내가 대신 약국을 찾아간 적이 있다. 당시에는 東京의 中野에 살</description>
+    </item>
+    
+    <item>
+      <title>참고용 Shortcodes</title>
       <link>https://linglingapp.github.io/post/hidden-post01/</link>
-      <pubDate>Tue, 30 Aug 2016 16:01:23 +0800</pubDate>
+      <pubDate>Mon, 30 Aug 2010 16:01:23 +0800</pubDate>
       
       <guid>https://linglingapp.github.io/post/hidden-post01/</guid>
       <description>&lt;h1 id=&#34;admonition&#34;&gt;Admonition&lt;/h1&gt;
@@ -126,15 +135,6 @@ Without title.
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>&#39;부작용&#39;의 일본어 발음</title>
-      <link>https://linglingapp.github.io/post/side-effect/</link>
-      <pubDate>Fri, 02 Nov 2012 01:37:56 +0800</pubDate>
-      
-      <guid>https://linglingapp.github.io/post/side-effect/</guid>
-      <description>title 내가 일본에 유학온지 얼마 되지 않았을 때, 같이 살던 동생이 눈이 아프다 하여 일본어를 그나마 할 수 있었던 내가 대신 약국을 찾아간 적이 있다. 당시에는 東京의 中野에</description>
     </item>
     
   </channel>

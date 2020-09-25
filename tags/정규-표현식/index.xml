@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>정규 표현식 on Japanese &amp; Korean</title>
+    <link>https://linglingapp.github.io/tags/%EC%A0%95%EA%B7%9C-%ED%91%9C%ED%98%84%EC%8B%9D/</link>
+    <description>Recent content in 정규 표현식 on Japanese &amp; Korean</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Tue, 02 Jun 2020 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/tags/%EC%A0%95%EA%B7%9C-%ED%91%9C%ED%98%84%EC%8B%9D/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>정규 표현식의 최소일치를 사용할 때 주의할 점</title>
+      <link>https://linglingapp.github.io/post/regex/</link>
+      <pubDate>Tue, 02 Jun 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/post/regex/</guid>
+      <description>나는 대학원에서 정규 표현식(Regular Expression, 이하 정규식)에 대해 배웠다. 말뭉치를 사용하지 않더라도 정규 표현식을 배워 놓는다면 언어학, 혹은 그 이상의 상황</description>
+    </item>
+    
+  </channel>
+</rss>

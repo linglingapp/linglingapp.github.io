@@ -62,7 +62,16 @@
     </item>
     
     <item>
-      <title>정규 표현식의 최소일치를 사용할 때 주의할 점</title>
+      <title>언어 연구를 위한 예문 수집 방법</title>
+      <link>https://linglingapp.github.io/post/example/</link>
+      <pubDate>Fri, 26 Jun 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/post/example/</guid>
+      <description>언어 연구를 위한 예문 수집 방법 언어학자들은 언어 연구를 위해 어떻게 예문을 수집할까? 전통적인 방법으로는 어딘가에서 보거나 읽은 예를 수첩이나 종이에 메모하여 보</description>
+    </item>
+    
+    <item>
+      <title>정규 표현식에 관한 메모</title>
       <link>https://linglingapp.github.io/post/regex/</link>
       <pubDate>Tue, 02 Jun 2020 01:37:56 +0800</pubDate>
       

@@ -93,13 +93,6 @@
   </url>
   
   <url>
-    <loc>https://linglingapp.github.io/tags/corpus/</loc>
-    <lastmod>2020-06-28T01:37:56+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://linglingapp.github.io/tags/%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%83%8D%E3%82%A4%E3%83%86%E3%82%A3%E3%83%96/</loc>
     <lastmod>2020-06-28T01:37:56+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -135,6 +128,13 @@
   </url>
   
   <url>
+    <loc>https://linglingapp.github.io/tags/%EB%A7%90%EB%AD%89%EC%B9%98/</loc>
+    <lastmod>2020-06-28T01:37:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://linglingapp.github.io/post/corpus-basic/</loc>
     <lastmod>2020-06-28T01:37:56+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -151,6 +151,13 @@
   <url>
     <loc>https://linglingapp.github.io/post/digital-native/</loc>
     <lastmod>2020-06-28T01:37:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://linglingapp.github.io/post/example/</loc>
+    <lastmod>2020-06-26T01:37:56+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

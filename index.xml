@@ -6,7 +6,7 @@
     <description>Recent content on Japanese &amp; Korean</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 28 Jun 2020 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 31 Jul 2020 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Theme preview</title>
       <link>https://linglingapp.github.io/post/hidden-post02/</link>
@@ -23,6 +23,24 @@
       
       <guid>https://linglingapp.github.io/about/</guid>
       <description>日本と韓国についての色々なメモ。 한국과 일본에 대한 몇 가지 메모.</description>
+    </item>
+    
+    <item>
+      <title>言語研究に役立つリンク集</title>
+      <link>https://linglingapp.github.io/post/links/</link>
+      <pubDate>Fri, 31 Jul 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/post/links/</guid>
+      <description>info 言語について研究をするときに，役立つ（かもしれない）リンクを集めています。ごちゃ混ぜになっているので（パソコンで接続している場合は）虫眼鏡</description>
+    </item>
+    
+    <item>
+      <title>&#39;부작용&#39;의 일본어 발음</title>
+      <link>https://linglingapp.github.io/post/side-effect/</link>
+      <pubDate>Sun, 28 Jun 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/post/side-effect/</guid>
+      <description>{{% figure src=&amp;quot;/image/i-dont-care.png&amp;quot; title=&amp;ldquo;default&amp;rdquo; alt=&amp;ldquo;img&amp;rdquo; %}} 내가 일본에 유학온지 얼마 되지 않았을 때, 같이 살던 동생이 눈이 아프다 하여 일본어를 그나마 할 수 있었던 내가 대신 약국을 찾아간 적이 있다. 당시에는 東</description>
     </item>
     
     <item>

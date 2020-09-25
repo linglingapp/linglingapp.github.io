@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CORPUS on Japanese &amp; Korean</title>
+    <link>https://linglingapp.github.io/tags/corpus/</link>
+    <description>Recent content in CORPUS on Japanese &amp; Korean</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 28 Jun 2020 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/tags/corpus/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>말뭉치에 대하여 알아보자</title>
+      <link>https://linglingapp.github.io/post/corpus-basic/</link>
+      <pubDate>Sun, 28 Jun 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/post/corpus-basic/</guid>
+      <description>말뭉치의 -뭉치는 사고뭉치의 -뭉치와 같다. 일본에서는 corpus를 외래어 그대로 コーパス(코파스)라고 한다. Corpus와 말뭉치의 어원 Corpu</description>
+    </item>
+    
+  </channel>
+</rss>

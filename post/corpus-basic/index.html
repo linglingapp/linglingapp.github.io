@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>말뭉치에 대하여 알아보자 - Japanese &amp; Korean</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Mincheol" /><meta name="description" content="말뭉치의 -뭉치는 사고뭉치의 -뭉치와 같다. 일본에서는 corpus를 외래어 그대로 コーパス(코파스)라고 한다. Corpus와 말뭉치의 어원 Corpu" /><meta name="keywords" content="Japanese, Korean" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.75.1 with theme even" />
+
+
+<link rel="canonical" href="https://linglingapp.github.io/post/corpus-basic/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="말뭉치에 대하여 알아보자" />
+<meta property="og:description" content="말뭉치의 -뭉치는 사고뭉치의 -뭉치와 같다. 일본에서는 corpus를 외래어 그대로 コーパス(코파스)라고 한다. Corpus와 말뭉치의 어원 Corpu" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://linglingapp.github.io/post/corpus-basic/" />
+<meta property="article:published_time" content="2020-06-28T01:37:56+08:00" />
+<meta property="article:modified_time" content="2020-06-28T01:37:56+08:00" />
+<meta itemprop="name" content="말뭉치에 대하여 알아보자">
+<meta itemprop="description" content="말뭉치의 -뭉치는 사고뭉치의 -뭉치와 같다. 일본에서는 corpus를 외래어 그대로 コーパス(코파스)라고 한다. Corpus와 말뭉치의 어원 Corpu">
+<meta itemprop="datePublished" content="2020-06-28T01:37:56+08:00" />
+<meta itemprop="dateModified" content="2020-06-28T01:37:56+08:00" />
+<meta itemprop="wordCount" content="2639">
+
+
+
+<meta itemprop="keywords" content="CORPUS," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="말뭉치에 대하여 알아보자"/>
+<meta name="twitter:description" content="말뭉치의 -뭉치는 사고뭉치의 -뭉치와 같다. 일본에서는 corpus를 외래어 그대로 コーパス(코파스)라고 한다. Corpus와 말뭉치의 어원 Corpu"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Japanese &amp; Korean</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Japanese &amp; Korean</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">말뭉치에 대하여 알아보자</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020年6月28日 </span>
+        <div class="post-category">
+            <a href="/categories/%ED%95%9C%EA%B5%AD%EC%96%B4/"> 한국어 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">目次</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#corpus와-말뭉치의-어원">Corpus와 말뭉치의 어원</a>
+      <ul>
+        <li><a href="#corpus의-어원">Corpus의 어원</a></li>
+        <li><a href="#말뭉치의-어원">말뭉치의 어원</a></li>
+      </ul>
+    </li>
+    <li><a href="#말뭉치에-대한-연구자들의-정의">말뭉치에 대한 연구자들의 정의</a>
+      <ul>
+        <li><a href="#넓은-의미의-말뭉치">넓은 의미의 말뭉치</a></li>
+        <li><a href="#좁은-의미의-말뭉치">좁은 의미의 말뭉치</a></li>
+        <li><a href="#그-밖에">그 밖에</a></li>
+      </ul>
+    </li>
+    <li><a href="#말뭉치의-장점과-단점">말뭉치의 장점과 단점</a>
+      <ul>
+        <li><a href="#말뭉치의-장점">말뭉치의 장점</a>
+          <ul>
+            <li><a href="#망라성網羅性">망라성(網羅性)</a></li>
+            <li><a href="#단어와-단어의-공기共起-및-분포-파악">단어와 단어의 공기(共起) 및 분포 파악</a></li>
+            <li><a href="#사전-편찬">사전 편찬</a></li>
+          </ul>
+        </li>
+        <li><a href="#말뭉치의-단점">말뭉치의 단점</a>
+          <ul>
+            <li><a href="#균형잡힌-말뭉치의-함정">균형잡힌 말뭉치의 함정</a></li>
+            <li><a href="#소프트웨어-사용의-한계">소프트웨어 사용의 한계</a></li>
+            <li><a href="#말뭉치-구축-및-사용을-위한-비용">말뭉치 구축 및 사용을 위한 비용</a></li>
+            <li><a href="#맞춤법-및-표기의-문제">맞춤법 및 표기의 문제</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#말뭉치의-종류">말뭉치의 종류</a></li>
+    <li><a href="#참고-문헌">참고 문헌</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><code>말뭉치</code>의 <code>-뭉치</code>는 사고뭉치의 <code>-뭉치</code>와 같다. 일본에서는 <code>corpus</code>를 외래어 그대로 <code>コーパス(코파스)</code>라고 한다.</p>
+<h1 id="corpus와-말뭉치의-어원">Corpus와 말뭉치의 어원</h1>
+<h2 id="corpus의-어원">Corpus의 어원</h2>
+<p><code>corpus</code>는 <code>신체</code>를 뜻하는 라틴어의 corpus(코르푸스)가 어원으로, 일찍부터 <code>Corpus Iuris Civilis(로마법 대전)</code>과 같이 <code>자료 전체</code>라는 의미로 사용되었다.</p>
+<h2 id="말뭉치의-어원">말뭉치의 어원</h2>
+<p>한국에서는 <code>말뭉치</code>라는 단어가 <code>corpus</code>를 가르키는 전문 용어로 사용되고 있다. 처음 말뭉치라는 용어를 사용한 사람은&hellip;</p>
+<h1 id="말뭉치에-대한-연구자들의-정의">말뭉치에 대한 연구자들의 정의</h1>
+<h2 id="넓은-의미의-말뭉치">넓은 의미의 말뭉치</h2>
+<p>특정 텍스트에 의존하여 연구를 하는 경우, 그 텍스트를 말뭉치라고 할 수 있다. 이러한 정의는 가장 넓은 의미의 말뭉치라고 할 수 있다(後藤 2003). 브라운 말뭉치(Brown corpus)는 1967년, 컴퓨터를 이용해 대량의 텍스트를 처리하여 격납한 최초의 말뭉치라고 볼 수 있다. 이 말뭉치의 등장 이후, <code>corpus</code>라는 용어는 주로 <code>컴퓨터를 이용해 대규모의 텍스트를 전산 처리 한 것</code>을 가르키게 되었다. 이러한 정의를 넓은 의미의 말뭉치라고 할 수 있겠다. 브라운 말뭉치가 현대적인 말뭉치의 고전(古典)으로 불리는 이유중 하나는 이 말뭉치가 단순한 전산화된 말뭉치여서가 아니라 말뭉치 설계의 중요성을 보여주었기 때문이다.</p>
+<h2 id="좁은-의미의-말뭉치">좁은 의미의 말뭉치</h2>
+<p>브라운 말뭉치에서는 표본으로 1961년 미국에서 인쇄 및 간행한 인쇄물을 모집단으로 삼았다. 이것을 16개의 장르로 나누어, 각 장르별로 중요도를 부여하였다. 이에 따라 중요도가 높은 장르에서는 그만큼 많은 수의 텍스트를, 그렇지 않은 장르에서는 비교적 적은 양의 텍스트를 추출하였다. 이렇게 하여 브라운 말뭉치는 약 1,000만 단어 규모의 말뭉치가 되었다. 이러한 말뭉치의 설계 방침은 이후의 말뭉치 설계에 큰 영향을 미치게 되었다. 이러한 방식으로 완성된 말뭉치는 <code>balanced corpus</code>나 <code>sample corpus</code>로 불리게 된다. 브라운 말뭉치와 같이 <code>언어 연구</code>라는 목적을 가지고 설계하여 텍스트를 수집해 전산화한 경우, 가장 좁은 의미의 말뭉치라고 할 수 있다.</p>
+<h2 id="그-밖에">그 밖에</h2>
+<blockquote>
+<p>말뭉치(corpus)는 언어학자들이 경험적, 실증적으로 언어를 분석하기 위해서 구축한 언어 자료를 말한다.(강현석 외 2014: 38)</p>
+</blockquote>
+<h1 id="말뭉치의-장점과-단점">말뭉치의 장점과 단점</h1>
+<h2 id="말뭉치의-장점">말뭉치의 장점</h2>
+<h3 id="망라성網羅性">망라성(網羅性)</h3>
+<p>연구자가 어제 발행된 신문에서 <code>신문</code>이라는 단어가 몇 번 등장하였는지 직접 세어보는 것은 그리 어려운 일은 아닐 것이다. 하지만 찾아보아야 할 신문이 하루나 이틀이 아닌 지난 100년 사이에 발행된 신문이라면 어떨까? 방대한 양의 활자속에서 연구자가 원하는 특정한 단어가 얼마나 등장하는지 그 빈도를 세는 것은, 불가능하지는 않지만 고된 작업이다. 하지만 전산화 처리된 텍스트 자료와 컴퓨터만 있다면 이러한 작업은 그리 오래 걸리지 않을 것이다. 또한 연구자가 직접 세는 경우에는 실수를 할 가능성도 있으나 컴퓨터의 경우에는 연구자가 컴퓨터에게 명령을 잘못 전달하지 않는 이상, 그러한 걱정을 할 필요는 없다. 이처럼 말뭉치를 사용하면 많은 양의 텍스트 자료를 대상으로 특정 작업을 하나씩 하나씩이 아닌, 한꺼번에 할 수 있다는 이점이 있다.</p>
+<h3 id="단어와-단어의-공기共起-및-분포-파악">단어와 단어의 공기(共起) 및 분포 파악</h3>
+<p>한국어의 경우, <code>먹다</code>라는 동사는 고형물에 한하여 사용되지 않는다. <code>물을 먹다</code>처럼 대상이 액체여도 사용 가능하다. 이러한 <code>먹다</code>의 목적어로 많이 사용되는 명사는 고형물일까 아니면 액체일까? 단순히 생각해봤을 때, 대상이 액체인 경우에는 <code>물을 마시다</code>와 같이 <code>마시다</code>라는 동사가 따로 있으므로 <code>먹다</code>의 목적어는 고형물과 공기할 가능성이 더 높지 않을까? 이렇게 어떠한 특정 단어가 어떤 단어들과 함께 나타날 때, 그러한 조합을 공기(共起) 혹은 콜로케이션(collocation)이라고 한다. 말뭉치를 이용한다면 특정 단어의 공기는 비교적 쉽게 파악할 수 있다.</p>
+<p>또한 <code>되게 상징적이다</code>라는 영화 기생충의 대사가 있는데 <code>상징적</code>이라는 단어는 논문과 소설, 어느 쪽에서 더 많이 등장할까? 만약 <code>상징적</code>이라는 단어가 논문보다는 소설에서 더 많이 등장한다면 그러한 차이는 언어 위상(位相)의 차이라고 결론지을 수 있을 것이다. 이와 같이 특정 단어가 어떤 장르에 더 많이 분포하고 있는지를 살펴보기에도 말뭉치는 좋은 도구가 될 수있다.</p>
+<h3 id="사전-편찬">사전 편찬</h3>
+<p>말뭉치가 어떠한 점에서 사전 편찬에 도움이 되는지는 굳이 언급하지 않도록 하겠다.</p>
+<h2 id="말뭉치의-단점">말뭉치의 단점</h2>
+<h3 id="균형잡힌-말뭉치의-함정">균형잡힌 말뭉치의 함정</h3>
+<p>언어에서 <code>모집단</code>이란 무엇일까? 균형잡힌 말뭉치가 특정 언어를 대표한다고 볼 수 있을까? 인간의 언어는 무한한 생산성을 가지고 있다. 따라서 이러한 언어의 모집단은 무한한 문장의 집합이라고 할 수 있다. 한편 말뭉치는 아무리 그 규모가 크더라 할 지라도 결국에는 유한하다. 이러한 의미에서 말뭉치는, 무한한 모집단을 유한한 표본으로 대표하고 있기 때문에 필연적으로 치우침이 존재하며 <code>완전한 균형을 잡는 것</code> 또한 불가능하다. 이 점은 말뭉치를 사용해 언어 연구를 할 때 반드시 염두에 두어야 한다.</p>
+<h3 id="소프트웨어-사용의-한계">소프트웨어 사용의 한계</h3>
+<p>말뭉치는 보통 특정한 어플리케이션과 함께 제공되는 경우가 많다. 예를 들면 COCA나 BCCWJ는 어플리케이션을 사용하여 말뭉치를 웹상에서 쉽게 이용할 수 있다. 말뭉치와 어플리케이션을 혼동하는 경우를 간혹 보는데, 엄밀히 말하자면 둘은 별개의 것임으로 구분해서 불러야 한다.</p>
+<p>하지만&hellip;</p>
+<h3 id="말뭉치-구축-및-사용을-위한-비용">말뭉치 구축 및 사용을 위한 비용</h3>
+<p>세상에 공짜는 없다. 특히 균형잡힌 말뭉치의 구축에는 많은 시간과 노력이 필요하며 떄로는 저작권 문제로 인해 일정한 금액을 지불하는 경우도 있다. 균형잡힌 말뭉치는 공동 이용을 목적으로 개발되는 경우가 많은데, 이에는 저작권 문제가 항상 뒤따르기 마련이다. 다양한 종류의 텍스트를 대상으로 말뭉치를 구축하는 경우, 이 문제는 반드시 해결해야하는 걸림돌이 될 수 있다.</p>
+<p>이렇게 (피, 땀 그리고 눈물로)구축된 말뭉치는 감사하게도 무료로 공개되는 경우도 있으며 신청이나 심사를 거쳐 사용 권한을 얻게 되는 경우도 있다. 그러나, 조금 더 다양한 장르의 텍스트를 이용하거나 특별한 기능을 사용하고 싶을 때는 일정한 요금을 지불해야 하는 경우도 있다. 혹은 텍스트 자료를 다루는 것이 어렵지 않은 연구자라면 조금 비싸지만 텍스트 자료 그 자체(raw data)를 구입할 수도 있다.</p>
+<h3 id="맞춤법-및-표기의-문제">맞춤법 및 표기의 문제</h3>
+<p>문법에 까다로운 사람이 <code>감기 빨리 낳으세요</code>라는 문자를 받는다면 <code>낳다</code>와 <code>낫다</code>와 <code>낮다</code> 사이에 어떤 차이가 있는지를 물어볼 것이고, 운이 없다면 물어본 사람은 블랙리스트에 올라가거나 차단될 수도 있다. 연구자가 <code>아이를 낳다</code>의 <code>낳다</code>가 말뭉치에서 얼마나 등장하는지 알아보는 경우, <code>감기가 낳다</code>처럼 잘못된 표기가 말뭉치에 포함되어 있다하더라도, 고맙게도 컴퓨터는 연구자의 의도와는 상관 없이 <code>낳다</code>를 추출해 준다. 이러한 정보를 기반으로 한 통계 자료를 신뢰해도 되는걸까?</p>
+<h1 id="말뭉치의-종류">말뭉치의 종류</h1>
+<h1 id="참고-문헌">참고 문헌</h1>
+<ol>
+<li>後藤斉（2003）「言語理論と言語資料―コーパスとコーパス以外のデータ―」『日本語学』22(5): 6-15.</li>
+<li>강현석 외 (2014). 사회언어학: 언어와 사회, 그리고 문화. 글로벌콘텐츠.</li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">作成者</span>
+    <span class="item-content">Mincheol</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">最終更新日</span>
+    <span class="item-content">
+        2020年6月28日
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/corpus/">CORPUS</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/pusan-dialect/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">釜山方言の理解</span>
+            <span class="prev-text nav-mobile">前の記事へ</span>
+          </a>
+        <a class="next" href="/post/digital-native/">
+            <span class="next-text nav-default">현대 일본에서의 이른바 디지털 네이티브</span>
+            <span class="next-text nav-mobile">次の記事へ</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  <a href="https://linglingapp.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span>Mincheol</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

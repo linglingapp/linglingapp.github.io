@@ -8,15 +8,6 @@
     <language>ja</language>
     <lastBuildDate>Wed, 21 Oct 2020 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>참고용 Theme preview</title>
-      <link>https://linglingapp.github.io/post/hidden-post02/</link>
-      <pubDate>Sat, 10 Jul 2010 00:00:00 +0800</pubDate>
-      
-      <guid>https://linglingapp.github.io/post/hidden-post02/</guid>
-      <description>Based on MarkdownPreview test.md. Markdown 1 2 3 4 5 6 7 8 # H1 ## H2 ### H3 #### H4 ##### H5 ###### H6 ### Duplicate Header ### Duplicate Header H1 H2 H3 H4 H5 H6 Duplicate Header Duplicate Header Paragraphs 1 2 3 4 This is a paragraph. I am still part of the paragraph. New paragraph. This is a paragraph. I am still part of the paragraph.</description>
-    </item>
-    
-    <item>
       <title>About</title>
       <link>https://linglingapp.github.io/about/</link>
       <pubDate>Tue, 02 Oct 2012 21:38:52 +0800</pubDate>
@@ -85,7 +76,7 @@
       <pubDate>Fri, 02 Oct 2020 01:37:56 +0800</pubDate>
       
       <guid>https://linglingapp.github.io/post/loanword-orthography/</guid>
-      <description>언어학도의 고역 외래어 표기법에 대해 사람들이 어떤 의견을 갖고 있는지 알고 싶다면 아래의 링크를 누르시오. http://hongsam1.egloos.com/v/3963351 이 글을 읽고 나서, 사람을 설득하는 것이 얼마나 힘든 과</description>
+      <description>언어학도의 고역 외래어 표기법에 대해 사람들이 어떤 의견을 갖고 있는지 알고 싶다면 아래의 링크를 누르시오. 지탄다와 치탄다, 일본어 표기법의 문제 이 글을 읽고 나서</description>
     </item>
     
     <item>
@@ -158,55 +149,6 @@
       
       <guid>https://linglingapp.github.io/post/side-effect/</guid>
       <description>내가 일본에 유학온지 얼마 되지 않았을 때, 같이 살던 동생이 눈이 아프다 하여 일본어를 그나마 할 수 있었던 내가 대신 약국을 찾아간 적이 있다. 당시에는 東京의 中野에 살</description>
-    </item>
-    
-    <item>
-      <title>참고용 Shortcodes</title>
-      <link>https://linglingapp.github.io/post/hidden-post01/</link>
-      <pubDate>Mon, 30 Aug 2010 16:01:23 +0800</pubDate>
-      
-      <guid>https://linglingapp.github.io/post/hidden-post01/</guid>
-      <description>&lt;h1 id=&#34;admonition&#34;&gt;Admonition&lt;/h1&gt;
-&lt;div class=&#34;admonition note&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;I&amp;#39;m title!&lt;/p&gt;
-&lt;p&gt;biu biu biu.&lt;/p&gt;
-&lt;details class=&#34;admonition note&#34;&gt;&lt;summary class=&#34;admonition-title&#34;&gt;note&lt;/summary&gt;
-  &lt;p&gt;biu biu biu.&lt;/p&gt;
-&lt;/details&gt;
-&lt;div class=&#34;admonition example&#34;&gt;
-  &lt;p&gt;Without title.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;{{% admonition note &amp;#34;I&amp;#39;m title!&amp;#34; false %}}
-biu biu biu.
-
-{{% admonition type=&amp;#34;note&amp;#34; title=&amp;#34;note&amp;#34; details=&amp;#34;true&amp;#34; %}}
-biu biu biu.
-{{% /admonition %}}
-
-{{% admonition example %}}
-Without title.
-{{% /admonition %}}
-
-{{% /admonition %}}
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
     </item>
     
   </channel>

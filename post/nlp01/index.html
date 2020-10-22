@@ -49,7 +49,7 @@
 <meta itemprop="description" content="TensorFlow 2015年に公開された，Googleのマシンラーニングライブラリ。使いやすいので，Pythonで簡単にモデリングやテストができる。Tens">
 <meta itemprop="datePublished" content="2020-10-21T01:37:56+08:00" />
 <meta itemprop="dateModified" content="2020-10-21T01:37:56+08:00" />
-<meta itemprop="wordCount" content="1039">
+<meta itemprop="wordCount" content="3563">
 
 
 
@@ -144,17 +144,25 @@
         <li><a href="#tfkeraslayers">tf.keras.layers</a>
           <ul>
             <li><a href="#tfkeraslayersdense">tf.keras.layers.Dense</a></li>
+            <li><a href="#tfkeraslayersdropout">tf.keras.layers.Dropout</a></li>
+            <li><a href="#tfkeraslayersconv1d">tf.keras.layers.Conv1D</a></li>
+            <li><a href="#tfkeraslayersmaxpool1d">tf.keras.layers.MaxPool1D</a></li>
+          </ul>
+        </li>
+        <li><a href="#tensorflow-20">TensorFlow 2.0</a>
+          <ul>
+            <li><a href="#モデルの構築">モデルの構築</a></li>
+            <li><a href="#sequential-api">Sequential API</a></li>
+            <li><a href="#functional-api">Functional API</a></li>
+            <li><a href="#custom-layers">Custom Layers</a></li>
+            <li><a href="#subclassing-custom-model">Subclassing (Custom Model)</a></li>
+            <li><a href="#モデルの学習">モデルの学習</a></li>
+            <li><a href="#内部apiの活用">内部APIの活用</a></li>
           </ul>
         </li>
       </ul>
     </li>
-    <li><a href="#エディタとpdfビューア">エディタとPDFビューア</a>
-      <ul>
-        <li><a href="#エディタの設定">エディタの設定</a></li>
-        <li><a href="#pdfビューアの設定">PDFビューアの設定</a></li>
-        <li><a href="#参考文献を出力する">参考文献を出力する</a></li>
-      </ul>
-    </li>
+    <li><a href="#scikit-learn">scikit-learn</a></li>
   </ul>
 </nav>
   </div>
@@ -166,25 +174,557 @@
 <p>TensorFlowのkerasモジュールの一つで，ディープラーニング・オープンソース。</p>
 <h3 id="tfkeraslayersdense">tf.keras.layers.Dense</h3>
 <p>Denseは，ニューラルネットワークの最も基本的な形態を意味する。この関数は，以下の式を満たす基本的なニューラルネットワークの層を作る。</p>
-<p>$$ evidence_{i}=\sum_{j}W_{ij}x_{j}+b_{i} $$</p>
-<p>$p(x|y) = \frac{p(y|x)p(x)}{p(y)}$, (p(x|y) = \frac{p(y|x)p(x)}{p(y)}).</p>
-<p>$$ E(\mathbf{v}, \mathbf{h}) = -\sum_{i,j}w_{ij}v_i h_j - \sum_i b_i v_i - \sum_j c_j h_j $$</p>
-<p>\[3 &lt; 4\]</p>
-<p>\begin{align}
-p(v_i=1|\mathbf{h}) &amp; = \sigma\left(\sum_j w_{ij}h_j + b_i\right) \<br>
-p(h_j=1|\mathbf{v}) &amp; = \sigma\left(\sum_i w_{ij}v_i + c_j\right)
-\end{align}</p>
-<p>インストール
-TeXのインストール方法は，<a href="https://texwiki.texjp.org/?TeX%20Live%2FWindows" target="_blank">「TeX Wiki」</a>に書いてある。が，インストールが2度失敗したので，<a href="https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=2659" target="_blank">「TeX Live 2019 インストール失敗」</a>を参考にした。自分の場合は，<code>install-tl-windows.exe</code>から<code>Unpack Only</code>を選択して解決。</p>
-<h1 id="エディタとpdfビューア">エディタとPDFビューア</h1>
-<p>エディタは今まで使ってきた「TeXworks」の代わりに「TeXstudio」を，外部PDFビューアは「SumatraPDF」を選択。
-<a href="https://tm23forest.com/contents/texstudio-install-and-configure" target="_blank">「TeXstudioのインストールと初期設定」</a>が参考になる。</p>
-<h2 id="エディタの設定">エディタの設定</h2>
-<p>「TeXworks」では<kbd>Ctrl</kbd>+「クリック」で編集画面とPDF画面の相互参照ができた。今回はなぜか，それができなかったので調べてみたら，「オプション」→「TeXstudioの設定」→「コマンド」で，「LaTeX」を<code>platex.exe -synctex=1 -interaction=nonstopmode %.tex</code>のように変更したら，うまくできた。</p>
-<h2 id="pdfビューアの設定">PDFビューアの設定</h2>
-<p>ちなみに，「SumatraPDF」の「設定」→「オプション」で「逆順検索コマンドラインの設定」を<code>&quot;C:\Program Files (x86)\TeXstudio\texstudio.exe&quot; &quot;%f&quot; -line %l</code>のようにしておくと，「SumatraPDF」上でダブルクリックすることで，「TeXstudio」の該当箇所に移動するので便利である。</p>
-<h2 id="参考文献を出力する">参考文献を出力する</h2>
-<p>なお，参考文献を出力するために「BibTeX」の設定も変更しておく。「TeXstudio」では「オプション」→「TeXstudioの設定」→「コマンド」にある「BibTeX」を<code>pbibtex.exe -kanji=utf8 %</code>に変更して「OK」。そして，「文献」にある「タイプ」を「BibTeX」に変更する。これで<kbd>F5</kbd>→<kbd>F8</kbd>→<kbd>F5</kbd>→<kbd>F5</kbd>の順に押すと，参考文献が自動で作成される。</p>
+<p>$$ y=f(Wx+b) $$</p>
+<p><em>x</em>と<em>b</em>は，それぞれ入力ベクトル，バイアスベクトルである。<em>W</em>は重み行列。つまり，重み行列に入力ベクトルをかけて，バイアスベクトルを加え，その値に<em>f</em>という関数を適用する構造である。</p>
+<p>kerasのDenseを使用するには，まずオブジェクトを作る必要がある。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">dense</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span> <span class="o">...</span> <span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>ここに入力値を与える。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># オブジェクトを作った後に与える</span>
+<span class="n">dense</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span> <span class="o">...</span> <span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">dense</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+
+<span class="c1"># オブジェクトを作るときに設定</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span> <span class="o">...</span> <span class="p">)(</span><span class="nb">input</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>オブジェクトを作るときに与えることができる引数は次の通り。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="fm">__init__</span><span class="p">(</span>
+	<span class="n">units</span><span class="p">,</span>
+	<span class="n">activation</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+	<span class="n">use_bias</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+	<span class="n">kernel_initializer</span><span class="o">=</span><span class="s1">&#39;glorot_uniform&#39;</span><span class="p">,</span>
+	<span class="n">bias_initializer</span><span class="o">=</span><span class="s1">&#39;zeros&#39;</span><span class="p">,</span>
+	<span class="n">kernel_regularizer</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+	<span class="n">bias_regularizer</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+	<span class="n">activity_regularizer</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+	<span class="n">kernel_constraint</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+	<span class="n">bias_constraint</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+	<span class="o">**</span><span class="n">kwargs</span>
+<span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>たとえば，入力値に対してシグモイド関数を使用し，出力として10個の値を出す完全連結階層（Fully Connected Layer）は，次のように書ける。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">INPUT_SIZE</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">inputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span> <span class="o">=</span> <span class="n">INPUT_SIZE</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">)(</span><span class="n">inputs</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>10個のノードを持つ隠れ層があり，最終的な出力は2個のニューラルネットワーク構造は，次のようにオブジェクトを二つ作ればよい。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">INPUT_SIZE</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">inputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span> <span class="o">=</span> <span class="n">INPUT_SIZE</span><span class="p">)</span>
+<span class="n">hidden</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">)(</span><span class="n">inputs</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">)(</span><span class="n">hidden</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="tfkeraslayersdropout">tf.keras.layers.Dropout</h3>
+<p>このモジュールは，<code>keras.layers</code>に入力される値に対し，ドロップアウトを適用する。ニューラルネットワークを作るときの問題点として，Overfittingがある。この問題は，正規化（Regularization）をすることで解決される。ドロップアウト（dropout）は，代表的な正規化方法の一つである。使い方は，先ほどのdense層を作る方法と似ている。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span> <span class="o">...</span> <span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>ドロップアウトの適用には，入力値が必要。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># オブジェクトを作った後，再び呼び出して入力値を設定する方法</span>
+<span class="n">dropout</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span> <span class="o">...</span> <span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">dropout</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+
+<span class="c1"># オブジェクトを作るときに入力値を設定する方法</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span> <span class="o">...</span> <span class="p">)(</span><span class="nb">input</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>ドロップアウトの引数としては，次のようなものがある。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="fm">__init__</span><span class="p">(</span>
+	<span class="n">rate</span><span class="p">,</span>
+	<span class="n">noise_shape</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+	<span class="n">seed</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+	<span class="o">**</span><span class="n">kwargs</span>
+<span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>ドロップアウトを適用する例。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">INPUT_SIZE</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">input</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span> <span class="o">=</span> <span class="n">INPUT_SIZE</span><span class="p">)</span>
+<span class="n">dropout</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">rate</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)(</span><span class="n">inputs</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>先ほどのdenseにおいて取り上げたニューラルネットワーク構造で，最初の入力値にドロップアウトを適用すると…</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">inputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span> <span class="o">=</span> <span class="n">INPUT_SIZE</span><span class="p">)</span>
+<span class="n">dropout</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">rate</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">)(</span><span class="n">inputs</span><span class="p">)</span>
+<span class="n">hidden</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">)(</span><span class="n">dropout</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">)(</span><span class="n">hidden</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="tfkeraslayersconv1d">tf.keras.layers.Conv1D</h3>
+<p>コンボリューション（Convolution）。TensorFlowのコンボリューションは，Conv1D・Conv2D・Conv3Dに分かれる。一般的にコンボリューションは二つを基準を用いて区別することができる。①コンボリューションが進む方向，②出力される値である。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center">コンボリューションの方向</th>
+<th style="text-align:center">出力値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Conv1D</td>
+<td style="text-align:center">一方向（横）</td>
+<td style="text-align:center">1-D Array(vector)</td>
+</tr>
+<tr>
+<td>Conv2D</td>
+<td style="text-align:center">二方向（横・縦）</td>
+<td style="text-align:center">2-D Array(matrix)</td>
+</tr>
+<tr>
+<td>Conv3D</td>
+<td style="text-align:center">三方向（横・縦・高さ）</td>
+<td style="text-align:center">3-D Array(tensor)</td>
+</tr>
+</tbody>
+</table>
+<p>Conv1Dも，DenseやDropoutの使用方法とほとんど同じ。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># オブジェクトを作った後，再び呼び出して入力値を設定する方法</span>
+<span class="n">conv1d</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv1D</span><span class="p">(</span> <span class="o">...</span> <span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">conv1d</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+
+<span class="c1"># オブジェクトを作るときに入力値を設定する方法</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv1D</span><span class="p">(</span> <span class="o">...</span> <span class="p">)(</span><span class="nb">input</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>オブジェクトを作る際に渡すことができる引数は以下の通り。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="fm">__init__</span><span class="p">(</span>
+	<span class="n">filters</span><span class="p">,</span>
+	<span class="n">kernel_size</span><span class="p">,</span>
+	<span class="n">strides</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+	<span class="n">padding</span><span class="o">=</span><span class="s1">&#39;valid&#39;</span><span class="p">,</span>
+	<span class="n">data_format</span><span class="o">=</span><span class="s1">&#39;channels_last&#39;</span><span class="p">,</span>
+	<span class="n">dilation_rate</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+	<span class="n">activation</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+	<span class="n">use_bias</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+	<span class="n">kernel_initializer</span><span class="o">=</span><span class="s1">&#39;glorot_uniform&#39;</span><span class="p">,</span>
+	<span class="n">bias_initializer</span><span class="o">=</span><span class="s1">&#39;zeros&#39;</span><span class="p">,</span>
+	<span class="n">kernel_regularizer</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+	<span class="n">bias_regularizer</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+	<span class="n">activity_regularizer</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+	<span class="n">kernel_constraint</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+	<span class="n">bias_constraint</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+	<span class="o">**</span><span class="n">kwargs</span>	
+<span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>たとえば，(5, 10)の値に対して，フィルターの大きさ<code>kernel_size</code>を2にし，個数を10個に指定する場合，出力される値は(1,4,10)になる。</p>
+<p>Conv1Dを利用したコンボリューション・ニューラルネットワークは，次のようにして作ることができる。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">INPUT_SIZE</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">)</span>
+
+<span class="n">inputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span> <span class="o">=</span> <span class="n">INPUT_SIZE</span><span class="p">)</span>
+<span class="n">conv</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv1D</span><span class="p">(</span>
+	<span class="n">filters</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+	<span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+	<span class="n">padding</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">,</span>
+	<span class="n">activation</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">)(</span><span class="nb">input</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>入力値にドロップアウトを適用したコンボリューション・ニューラルネットワークも可能。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">INPUT_SIZE</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">)</span>
+
+<span class="n">inputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span> <span class="o">=</span> <span class="n">INPUT_SIZE</span><span class="p">)</span>
+<span class="n">dropout</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">rate</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)(</span><span class="nb">input</span><span class="p">)</span>
+<span class="n">conv</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv1D</span><span class="p">(</span>
+	<span class="n">filters</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+	<span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+	<span class="n">padding</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">,</span>
+	<span class="n">activation</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">)(</span><span class="nb">input</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="tfkeraslayersmaxpool1d">tf.keras.layers.MaxPool1D</h3>
+<p>プールは，コンボリューション・ニューラルネットワークといっしょに使われる技法の一つ。一般的には，feature mapの大きさを減らしたり，主要な特徴を抜き出すため，コンボリューションの後に適用される。</p>
+<p>プールには二つの技法がある。一つは，max-poolingで，もう一つはaverage-poolingである。前者はfeature mapに対し，最大値だけを抜き出し，後者は平均値を抜き出す方法である。</p>
+<p>max-poolingもコンボリューションのように，MaxPool1D，MaxPool2D，MaxPool3Dの三つのモデルに分けられる。原理もコンボリューションと同じ。自然言語処理ではMaxPool1Dがよく用いられる。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># オブジェクトを作った後，再び呼び出して入力値を設定する方法</span>
+<span class="n">max_pool</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPool1D</span><span class="p">(</span> <span class="o">...</span> <span class="p">)</span>
+<span class="n">max_pool</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+
+<span class="c1"># オブジェクトを作るときに入力値を設定する方法</span>
+<span class="n">max_pool</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPool1D</span><span class="p">(</span> <span class="o">...</span> <span class="p">)(</span><span class="nb">input</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>以下は，引数リスト。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="fm">__init__</span><span class="p">(</span>
+	<span class="n">pool_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+	<span class="n">strides</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+	<span class="n">padding</span><span class="o">=</span><span class="s1">&#39;valid&#39;</span><span class="p">,</span>
+	<span class="n">data_format</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+	<span class="o">**</span><span class="n">kwargs</span>
+<span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>入力値が，コンボリューションとmax poolingを使用した後，完全連結階層を通じて最終出力値が出る構造を作ってみる。そして，入力値にはドロップアウトを適用。max poolingの結果を階層につなげるためには，行列をベクトルにしなければならないので，<code>tf.keras.layers.Flatten</code>を使用する。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">INPUT_SIZE</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">)</span>
+
+<span class="n">inputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span> <span class="o">=</span> <span class="n">INPUT_SIZE</span><span class="p">)</span>
+<span class="n">dropout</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">rate</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)(</span><span class="nb">input</span><span class="p">)</span>
+<span class="n">conv</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv1D</span><span class="p">(</span>
+	<span class="n">filters</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+	<span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+	<span class="n">padding</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">,</span>
+	<span class="n">activation</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">)(</span><span class="nb">input</span><span class="p">)</span>
+<span class="n">max_pool</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPool1D</span><span class="p">(</span><span class="n">pool_size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padding</span> <span class="o">=</span> <span class="s1">&#39;same&#39;</span><span class="p">)(</span><span class="n">conv</span><span class="p">)</span>
+<span class="n">flatten</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">()(</span><span class="n">max_pool</span><span class="p">)</span>
+<span class="n">hidden</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">)(</span><span class="n">flatten</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">)(</span><span class="n">hidden</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="tensorflow-20">TensorFlow 2.0</h2>
+<p>TensorFlow 2.0では，散らかっていた既存のAPIを統合・削除し，また，pythonで活用できるようにEager executionの統合を行った。</p>
+<h3 id="モデルの構築">モデルの構築</h3>
+<p>TensorFlow 2.0では，kerasを利用してモデルを構築することを推奨している。keras APIは高水準（High-level）APIで，使いやすく，とても柔軟な性能を見せてくれる。kerasを利用したモデルの構築方法は，次のように分けることができる。</p>
+<ul>
+<li>Sequential API</li>
+<li>Functional API</li>
+<li>Functional/Sequential API
+<ul>
+<li>Custom Layers</li>
+</ul>
+</li>
+<li>Subclassing (Custom Model)</li>
+</ul>
+<h3 id="sequential-api">Sequential API</h3>
+<p><code>tf.keras.Sequential</code>は，kerasを活用してモデルを構築できる最も簡単な形態のAPIである。これを利用すると，簡単な層の積み重ねが実現できる。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>このように，Sequentialモジュールはとても簡単な仕組みである。したがって，以下のようにモデルの層の積み重ねが複雑な場合，このモジュールは不向きである。</p>
+<ul>
+<li>Multi-input models</li>
+<li>Multi-output models</li>
+<li>Models with shared layers</li>
+<li>Models with non-sequential data flows</li>
+</ul>
+<p>上記のようなモデルを実現させるためには，kerasのFunctional APIやSubclassingを利用する。</p>
+<h3 id="functional-api">Functional API</h3>
+<p>先ほどSequential APIで構築したモデルと同じものをFunctional APIで作ってみる。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">inputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">32</span><span class="p">,))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">inputs</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Functional APIでは，入力値を受けるInputモジュールの宣言が必要である。その際には，形態（shape）を定義する必要がある。</p>
+<h3 id="custom-layers">Custom Layers</h3>
+<p>今までは，dense層が複数回使われたニューラルネットワークを利用した。このニューラルネットワークを一つの層にまとめて再利用性を向上させるのであれば，次のようにカスタム層として定義しておけばよい。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">CustomLayer</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Layer</span><span class="p">):</span>
+
+	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hidden_dimension</span><span class="p">,</span> <span class="n">hidden_dimension2</span><span class="p">,</span> <span class="n">output_dimension</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">hidden_dimension</span> <span class="o">=</span> <span class="n">hidden_dimension</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">hidden_dimension2</span> <span class="o">=</span> <span class="n">hidden_dimension2</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">output_dimension</span> <span class="o">=</span> <span class="n">output_dimension</span>
+		<span class="nb">super</span><span class="p">(</span><span class="n">CustomLayer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+		
+	<span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_shape</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">dense_layer1</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden_dimension</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;relu&#39;</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">dense_layer2</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hidden_dimension2</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;relu&#39;</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">dense_layer3</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_dimension</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;softmax&#39;</span><span class="p">)</span>
+		
+	<span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
+		<span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dense_layer1</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+		<span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dense_layer2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+		
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dense_layer3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>カスタム層を定義する際には，layersパッケージのLayerクラスを引継ぎ，上記のように三つのメソッドを定義すればよい。</p>
+<p>このように定義したものは，Sequential APIやFunctional APIを活用するときに用いることができる。以下は，Sequentialモジュールを活用する場合の例である。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">CustomLayer</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="subclassing-custom-model">Subclassing (Custom Model)</h3>
+<p>自由度の高いSubclassingは，カスタム層を作る方法と似ている。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">MyModel</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+
+	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hidden_dimension</span><span class="p">,</span> <span class="n">hidden_dimension2</span><span class="p">,</span> <span class="n">output_dimension</span><span class="p">):</span>
+		<span class="nb">super</span><span class="p">(</span><span class="n">MyModel</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;my model&#39;</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">dense_layer1</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">hidden_dimension</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;relu&#39;</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">dense_layer2</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">hidden_dimension2</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;relu&#39;</span><span class="p">)</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">dense_layer3</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">output_dimension</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;softmax&#39;</span><span class="p">)</span>
+		
+	<span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
+		<span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dense_layer1</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+		<span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dense_layer2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+		
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dense_layer3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="モデルの学習">モデルの学習</h3>
+<p>モデルの学習とは言え，ここには検証や予測など，その他のプロセスも含まれる。モデルの学習方法は，大きく分けて二つある。</p>
+<ul>
+<li>kerasモデルの内部APIを活用する(e.g. model.fit(), model.evaluate(), model.predict())</li>
+<li>学習・検証・予測など，すべてのプロセスをGradientTapeオブジェクトを活用して直接実現させる</li>
+</ul>
+<p>以下では前者の方法を用いる。</p>
+<h3 id="内部apiの活用">内部APIの活用</h3>
+<h1 id="scikit-learn">scikit-learn</h1>
+<p>Python用のマシンラーニング・ライブラリ。Pythonでマシンラーニング・モデルを作るのに最適のライブラリである。</p>
 
     </div>
 
@@ -194,11 +734,7 @@ TeXのインストール方法は，<a href="https://texwiki.texjp.org/?TeX%20Li
           <a href="/tags/nlp/">NLP</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/hidden-post02/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">참고용 Theme preview</span>
-            <span class="prev-text nav-mobile">前の記事へ</span>
-          </a>
+        
         <a class="next" href="/post/latex/">
             <span class="next-text nav-default">LaTeXのインストールに関する覚え書き</span>
             <span class="next-text nav-mobile">次の記事へ</span>
@@ -254,6 +790,13 @@ TeXのインストール方法は，<a href="https://texwiki.texjp.org/?TeX%20Li
 
 
 <script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
 
 
 

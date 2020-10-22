@@ -6,7 +6,7 @@
     <description>Recent content on Japanese &amp; Korean</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 11 Oct 2020 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Oct 2020 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>참고용 Theme preview</title>
       <link>https://linglingapp.github.io/post/hidden-post02/</link>
@@ -26,12 +26,48 @@
     </item>
     
     <item>
-      <title>韓国人の隠喩的手ぶりと時間の概念化</title>
+      <title>自然言語処理のためのライブラリ</title>
+      <link>https://linglingapp.github.io/post/nlp01/</link>
+      <pubDate>Wed, 21 Oct 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/post/nlp01/</guid>
+      <description>TensorFlow 2015年に公開された，Googleのマシンラーニングライブラリ。使いやすいので，Pythonで簡単にモデリングやテストができる。Tens</description>
+    </item>
+    
+    <item>
+      <title>LaTeXのインストールに関する覚え書き</title>
+      <link>https://linglingapp.github.io/post/latex/</link>
+      <pubDate>Tue, 20 Oct 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/post/latex/</guid>
+      <description>インストール TeXのインストール方法は，「TeX Wiki」に書いてある。が，インストールが2度失敗したので，「TeX Live 2019 インストール失敗」を</description>
+    </item>
+    
+    <item>
+      <title>Google検索とInstagram検索</title>
+      <link>https://linglingapp.github.io/post/google-search/</link>
+      <pubDate>Sat, 17 Oct 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/post/google-search/</guid>
+      <description>2020年10月13日放送分の「マツコの知らない世界」で，「ハッシュタグの世界」というテーマが取り上げられた。Instagramをしないので</description>
+    </item>
+    
+    <item>
+      <title>제스처 코딩</title>
+      <link>https://linglingapp.github.io/post/gesture-coding/</link>
+      <pubDate>Thu, 15 Oct 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/post/gesture-coding/</guid>
+      <description>info 이 글은 David McNeill(2005, 2016)의 Gesture and Thought과 Why we gesture : the surprising role of hand movements in communication을 참고하여 작성하였다. 여기서는 피험자A가 피험자B</description>
+    </item>
+    
+    <item>
+      <title>제스처와 시간 개념화</title>
       <link>https://linglingapp.github.io/post/gesture-metaphor/</link>
       <pubDate>Sun, 11 Oct 2020 01:37:56 +0800</pubDate>
       
       <guid>https://linglingapp.github.io/post/gesture-metaphor/</guid>
-      <description>この記事は，次の本の内容をまとめながら，個人的な意見，その他の釜山方言に関する情報などを付け加えたものである。 이근열(2015).『부산 사투</description>
+      <description>&amp;lsquo;어제&amp;rsquo;, &amp;lsquo;오늘&amp;rsquo;, &amp;lsquo;내일&amp;rsquo;, &amp;lsquo;조금 전에&amp;rsquo;,</description>
     </item>
     
     <item>

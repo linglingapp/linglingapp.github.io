@@ -6,14 +6,32 @@
     <description>Recent content in 日本語 on Japanese &amp; Korean</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 11 Oct 2020 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Oct 2020 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>韓国人の隠喩的手ぶりと時間の概念化</title>
-      <link>https://linglingapp.github.io/post/gesture-metaphor/</link>
-      <pubDate>Sun, 11 Oct 2020 01:37:56 +0800</pubDate>
+      <title>自然言語処理のためのライブラリ</title>
+      <link>https://linglingapp.github.io/post/nlp01/</link>
+      <pubDate>Wed, 21 Oct 2020 01:37:56 +0800</pubDate>
       
-      <guid>https://linglingapp.github.io/post/gesture-metaphor/</guid>
-      <description>この記事は，次の本の内容をまとめながら，個人的な意見，その他の釜山方言に関する情報などを付け加えたものである。 이근열(2015).『부산 사투</description>
+      <guid>https://linglingapp.github.io/post/nlp01/</guid>
+      <description>TensorFlow 2015年に公開された，Googleのマシンラーニングライブラリ。使いやすいので，Pythonで簡単にモデリングやテストができる。Tens</description>
+    </item>
+    
+    <item>
+      <title>LaTeXのインストールに関する覚え書き</title>
+      <link>https://linglingapp.github.io/post/latex/</link>
+      <pubDate>Tue, 20 Oct 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/post/latex/</guid>
+      <description>インストール TeXのインストール方法は，「TeX Wiki」に書いてある。が，インストールが2度失敗したので，「TeX Live 2019 インストール失敗」を</description>
+    </item>
+    
+    <item>
+      <title>Google検索とInstagram検索</title>
+      <link>https://linglingapp.github.io/post/google-search/</link>
+      <pubDate>Sat, 17 Oct 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/post/google-search/</guid>
+      <description>2020年10月13日放送分の「マツコの知らない世界」で，「ハッシュタグの世界」というテーマが取り上げられた。Instagramをしないので</description>
     </item>
     
     <item>

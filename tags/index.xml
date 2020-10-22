@@ -6,22 +6,67 @@
     <description>Recent content in Tags on Japanese &amp; Korean</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 11 Oct 2020 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Oct 2020 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>ジェスチャー</title>
-      <link>https://linglingapp.github.io/tags/%E3%82%B8%E3%82%A7%E3%82%B9%E3%83%81%E3%83%A3%E3%83%BC/</link>
-      <pubDate>Sun, 11 Oct 2020 01:37:56 +0800</pubDate>
+      <title>NLP</title>
+      <link>https://linglingapp.github.io/tags/nlp/</link>
+      <pubDate>Wed, 21 Oct 2020 01:37:56 +0800</pubDate>
       
-      <guid>https://linglingapp.github.io/tags/%E3%82%B8%E3%82%A7%E3%82%B9%E3%83%81%E3%83%A3%E3%83%BC/</guid>
+      <guid>https://linglingapp.github.io/tags/nlp/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>時間</title>
-      <link>https://linglingapp.github.io/tags/%E6%99%82%E9%96%93/</link>
+      <title>LaTeX</title>
+      <link>https://linglingapp.github.io/tags/latex/</link>
+      <pubDate>Tue, 20 Oct 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/tags/latex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Google</title>
+      <link>https://linglingapp.github.io/tags/google/</link>
+      <pubDate>Sat, 17 Oct 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/tags/google/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Instagram</title>
+      <link>https://linglingapp.github.io/tags/instagram/</link>
+      <pubDate>Sat, 17 Oct 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/tags/instagram/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>제스처</title>
+      <link>https://linglingapp.github.io/tags/%EC%A0%9C%EC%8A%A4%EC%B2%98/</link>
+      <pubDate>Thu, 15 Oct 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/tags/%EC%A0%9C%EC%8A%A4%EC%B2%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>코딩</title>
+      <link>https://linglingapp.github.io/tags/%EC%BD%94%EB%94%A9/</link>
+      <pubDate>Thu, 15 Oct 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/tags/%EC%BD%94%EB%94%A9/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>시간</title>
+      <link>https://linglingapp.github.io/tags/%EC%8B%9C%EA%B0%84/</link>
       <pubDate>Sun, 11 Oct 2020 01:37:56 +0800</pubDate>
       
-      <guid>https://linglingapp.github.io/tags/%E6%99%82%E9%96%93/</guid>
+      <guid>https://linglingapp.github.io/tags/%EC%8B%9C%EA%B0%84/</guid>
       <description></description>
     </item>
     

@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Japanese &amp; Korean</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 06 Nov 2020 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Nov 2020 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GoogleのCloud Speech-to-Text APIを使ってみた</title>
+      <link>https://linglingapp.github.io/post/google-speech-to-text/</link>
+      <pubDate>Fri, 13 Nov 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/post/google-speech-to-text/</guid>
+      <description>「Speech-to-Text」(STT)という技術がある。Google Cloud Platformの「Cloud Speech-to-Text API」を利用して，以下のように，</description>
+    </item>
+    
     <item>
       <title>중복과 반복, 그리고 중복과 반복</title>
       <link>https://linglingapp.github.io/post/repetition-reduplication/</link>
@@ -98,7 +107,7 @@
     </item>
     
     <item>
-      <title>釜山方言の理解</title>
+      <title>釜山方言について</title>
       <link>https://linglingapp.github.io/post/pusan-dialect/</link>
       <pubDate>Sun, 28 Jun 2020 01:37:56 +0800</pubDate>
       
@@ -112,7 +121,7 @@
       <pubDate>Sun, 28 Jun 2020 01:37:56 +0800</pubDate>
       
       <guid>https://linglingapp.github.io/post/corpus-basic/</guid>
-      <description>말뭉치의 -뭉치는 사고뭉치의 -뭉치와 같다. 일본에서는 corpus를 외래어 그대로 コーパス(코파스)라고 한다. Corpus와 말뭉치의 어원 Corpu</description>
+      <description>corpus는 발음 그대로 &amp;lsquo;코퍼스&amp;rsquo;라고 하는 경우도 있지만 일반적으로는 &amp;lsquo;말뭉치&amp;rsquo;라는 단어를 많이 사</description>
     </item>
     
     <item>

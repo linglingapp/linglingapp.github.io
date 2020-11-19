@@ -6,7 +6,16 @@
     <description>Recent content in 日本語 on Japanese &amp; Korean</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 21 Oct 2020 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Nov 2020 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GoogleのCloud Speech-to-Text APIを使ってみた</title>
+      <link>https://linglingapp.github.io/post/google-speech-to-text/</link>
+      <pubDate>Fri, 13 Nov 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/post/google-speech-to-text/</guid>
+      <description>「Speech-to-Text」(STT)という技術がある。Google Cloud Platformの「Cloud Speech-to-Text API」を利用して，以下のように，</description>
+    </item>
+    
     <item>
       <title>自然言語処理のためのライブラリ</title>
       <link>https://linglingapp.github.io/post/nlp01/</link>
@@ -53,7 +62,7 @@
     </item>
     
     <item>
-      <title>釜山方言の理解</title>
+      <title>釜山方言について</title>
       <link>https://linglingapp.github.io/post/pusan-dialect/</link>
       <pubDate>Sun, 28 Jun 2020 01:37:56 +0800</pubDate>
       

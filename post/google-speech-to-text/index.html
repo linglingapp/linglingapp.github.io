@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>GoogleのCloud Speech-to-Text APIを使ってみた - Japanese &amp; Korean</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Mincheol" /><meta name="description" content="「Speech-to-Text」(STT)という技術がある。Google Cloud Platformの「Cloud Speech-to-Text API」を利用して，以下のように，" /><meta name="keywords" content="Japanese, Korean" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.75.1 with theme even" />
+
+
+<link rel="canonical" href="https://linglingapp.github.io/post/google-speech-to-text/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="GoogleのCloud Speech-to-Text APIを使ってみた" />
+<meta property="og:description" content="「Speech-to-Text」(STT)という技術がある。Google Cloud Platformの「Cloud Speech-to-Text API」を利用して，以下のように，" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://linglingapp.github.io/post/google-speech-to-text/" />
+<meta property="article:published_time" content="2020-11-13T01:37:56+08:00" />
+<meta property="article:modified_time" content="2020-11-13T01:37:56+08:00" />
+<meta itemprop="name" content="GoogleのCloud Speech-to-Text APIを使ってみた">
+<meta itemprop="description" content="「Speech-to-Text」(STT)という技術がある。Google Cloud Platformの「Cloud Speech-to-Text API」を利用して，以下のように，">
+<meta itemprop="datePublished" content="2020-11-13T01:37:56+08:00" />
+<meta itemprop="dateModified" content="2020-11-13T01:37:56+08:00" />
+<meta itemprop="wordCount" content="4491">
+
+
+
+<meta itemprop="keywords" content="Google,Speech-to-Text,Google Cloud," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="GoogleのCloud Speech-to-Text APIを使ってみた"/>
+<meta name="twitter:description" content="「Speech-to-Text」(STT)という技術がある。Google Cloud Platformの「Cloud Speech-to-Text API」を利用して，以下のように，"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Japanese &amp; Korean</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Japanese &amp; Korean</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">GoogleのCloud Speech-to-Text APIを使ってみた</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020年11月13日 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/"> 日本語 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">目次</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#準備">準備</a>
+      <ul>
+        <li><a href="#登録">登録</a></li>
+        <li><a href="#google-sdk">Google SDK</a></li>
+        <li><a href="#ライブラリ">ライブラリ</a></li>
+      </ul>
+    </li>
+    <li><a href="#実行">実行</a>
+      <ul>
+        <li><a href="#ローカル">ローカル</a></li>
+        <li><a href="#オンライン">オンライン</a></li>
+      </ul>
+    </li>
+    <li><a href="#付録">付録</a>
+      <ul>
+        <li><a href="#flacに変換">flacに変換</a></li>
+        <li><a href="#動画から音声抽出">動画から音声抽出</a></li>
+        <li><a href="#sttの繰り返し">STTの繰り返し</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>「Speech-to-Text」(STT)という技術がある。Google Cloud Platformの「Cloud Speech-to-Text API」を利用して，以下のように，音声を日本語で文字起こしてみた。読み上げた文章は，ドラマ『孤独のグルメ』のイントロダクションに流れる<a href="https://www.tv-tokyo.co.jp/kodokunogurume2/intro/index.html" target="blank">あのセリフ</a>で，読み手はAI翻訳機「<a href="https://papago.naver.com/" target="blank">PAPAGO</a>」である。画面にある🔈をクリックすると，音声を聞くことができる。</p>
+<div style='position:relative; padding-bottom:calc(30.00% + 44px)'><iframe src='https://gfycat.com/ifr/FragrantSlimyBagworm' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;' allowfullscreen></iframe></div>
+<p>私がテストした環境は，以下の通りである。</p>
+<div class="admonition info"><p class="admonition-title">info</p>
+<p>OS：Windows10 64ビット</p>
+<p>テキストエディタ：Visual Studio Code</p>
+<p>Python：Python 3.8.6</p>
+</div>
+<div class="admonition tip"><p class="admonition-title">tip</p>
+<p>韓国語が読めるのであれば，以下のウェブページが参考になる。</p>
+<p><a href="https://webnautes.tistory.com/1247" target="blank">음성인식, Google Cloud Speech-to-Text API 사용해보기</a></p>
+<p><a href="http://hleecaster.com/google-cloud-speech-to-text-api/" target="blank">Google Speech-to-Text API를 활용해서 음성파일을 텍스트로 변환하자 (녹취록 받아적기 귀찮으니까)</a></p>
+</div>
+<h1 id="準備">準備</h1>
+<h2 id="登録">登録</h2>
+<p>まず，<a href="https://console.cloud.google.com/freetrial" target="blank">Google Cloud Platform</a>を利用できるようにしておく。有料だけど，今（2020年11月13日）なら90日間，無料で利用できる。だけど，似たような他のサービスがそうであるように，ここでもクレジットカードが必要である。クレジットカードを要請する理由として，Googleでは，ロボットによる自動加入を阻止するため，と言っている。</p>
+<p>手続きが終わったら，新しいプロジェクトを作って「API とサービス」から「API とサービスの有効化」を押す。</p>
+<figure class="center">
+    <img src="http://drive.google.com/uc?export=view&amp;id=1vdaUXvkMfCk6MBZLxM6ScIDIXeChvHXi" width="75%" height="75%"/> <figcaption>
+            <h4>「API とサービスの有効化」をクリック</h4>
+        </figcaption>
+</figure>
+<p>その後，検索窓から「speech」で検索し，「Cloud Speech-to-Text API」を選択する。</p>
+<figure class="center">
+    <img src="http://drive.google.com/uc?export=view&amp;id=1OoE2KutJdpAXBQ1840CKZv2sV5sKQCRy" width="75%" height="75%"/> <figcaption>
+            <h4>「Cloud Speech-to-Text API」をクリクラ</h4>
+        </figcaption>
+</figure>
+<figure class="center">
+    <img src="http://drive.google.com/uc?export=view&amp;id=1LL4qJhXIh_xABhgW1DZB_cPwb7dtAB4E" width="50%" height="50%"/> <figcaption>
+            <h4>はい，そうします。</h4>
+        </figcaption>
+</figure>
+<p>「課金が必要」と出たら，無料トライアルでクレジットをもらうので，恐れずに「課金を有効にする」を選択する。そして，「認証情報を作成」を選択し，「使用する API」から「Cloud Speech-to-Text API」を選ぶ。</p>
+<figure class="center">
+    <img src="http://drive.google.com/uc?export=view&amp;id=16x631B8_HgS-9TSRFD4egDf88Ettk1CV"/> <figcaption>
+            <h4>「認証情報を作成」しましょう。</h4>
+        </figcaption>
+</figure>
+<figure class="center">
+    <img src="http://drive.google.com/uc?export=view&amp;id=1CoLgGlX-Mz0LS4N3E_188fa45rJt4cNf" width="75%" height="75%"/> <figcaption>
+            <h4>「使用するAPI」から「Cloud Speech-to-Text API」を選択</h4>
+        </figcaption>
+</figure>
+<p>適当なアカウント名を入力して，「キーのタイプ」では「JSON」を選ぶ。</p>
+<figure class="center">
+    <img src="http://drive.google.com/uc?export=view&amp;id=1zbwd-zNwi71oz5FGzgfGpyejj7qd6Y-S" width="75%" height="75%"/> <figcaption>
+            <h4>次へ</h4>
+        </figcaption>
+</figure>
+<p>すると，自動的にローカルドライブに<strong>キー</strong>が保存される。<kbd>Windows key</kbd>+<kbd>R</kbd>を押して「ファイル名を指定して実行」を起動させ，<code>sysdm.cpl</code>と入力して実行する。続けて「システムのプロパティ」から「詳細設定」で「環境変数」を押し，さらに，「システム環境変数」から「新規」を選択する。そこで，「変数名」は<code>GOOGLE_APPLICATION_CREDENTIALS</code>，「変数値」は先ほどの<strong>キー</strong>が保存されているパス（path）を入力しよう。</p>
+<figure class="center">
+    <img src="http://drive.google.com/uc?export=view&amp;id=1wIebNaZdxiAM7Oxkl867rUJeuLb3nu2l"/> <figcaption>
+            <h4>パスを通す</h4>
+        </figcaption>
+</figure>
+<h2 id="google-sdk">Google SDK</h2>
+<p>「<a href="https://cloud.google.com/sdk/docs/downloads-versioned-archives" target="blank">Cloud SDK</a>」をインストールしよう。自分のOSに合ったものをダウンロードしよう。私と同じ環境であれば「Windows 64 ビット（x86_64）」をダウンロードすればいいだろう。もし，Pythonをインストールしていないのなら，「Windows 64 ビット（x86_64）、Python バンドル」と書いてあるものをダウンロードする。</p>
+<p>ダウンロードしたものを解凍し，適当なところ（たとえば，「c:\google-cloud-sdk」）に置く。「google-cloud-sdk」の中身を見ると「install.bat」があるので，コマンドプロンプトやターミナルなどを実行してインストール（<code>c:\google-cloud-sdk\install.bat</code>）する。そうすると，以下のメッセージとともに「Active code page」が発行される。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">C:\google-cloud-sdk&gt;install.bat
+Welcome to the Google Cloud SDK!
+</code></pre></td></tr></table>
+</div>
+</div><p>そして，「Do you want to help improve the Google Cloud SDK (y/N)?」や「Update %PATH% to include Cloud SDK binaries? (Y/n)?」と言われるので，<kdb>y</kdb>を押す。続いて，<code>c:\google-cloud-sdk\bin\gcloud init</code>と入力したら，「You must log in to continue. Would you like to log in (Y/n)?」と言うので<kdb>y</kdb>を押す。すると，ウェブブラウザが開くので，アカウントを選んで次に進もう。</p>
+<figure class="center">
+    <img src="http://drive.google.com/uc?export=view&amp;id=17wiGRRUMBYPRTx547TiB4T3sj-PcDsXU" width="50%" height="50%"/> <figcaption>
+            <h4>Googleにログインして次に</h4>
+        </figcaption>
+</figure>
+<p>再びコマンドプロンプト（またはターミナルなど）を見ると，「Please enter numeric choice or text value (must exactly match list
+item):」というメッセージが書いてある。初めて使う人は（たぶん）[1]になるだろう。すると，何らかのメッセージが出てくるが，真ん中あたりに「Your Google Cloud SDK is configured and ready to use!」と書いてあるのか，確認してみよう。</p>
+<h2 id="ライブラリ">ライブラリ</h2>
+<p>以下のライブラリをインストールしよう。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">pip install --upgrade google-cloud-storage
+pip install google-cloud-speech
+</code></pre></td></tr></table>
+</div>
+</div><p>次に，アカウントを活性化する。「&ndash;key-file=」のところには，先ほどの<strong>キー</strong>を置いたパスを書く。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">c:\google-cloud-sdk\bin\gcloud auth activate-service-account --key-file=&#34;C:\Users\Speech-to-Text-c1234567e.json&#34;
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio" target="blank">PyAudio: bindings for the PortAudio library</a>から，自分のPython環境に合わせて，ファイルをダウンロードする。私の場合は「PyAudio‑0.2.11‑cp38‑cp38‑win_amd64.whl」だった。ダウンロードしたら<code>pip install</code>でインストールする。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">pip install .\PyAudio-0.2.11-cp38-cp38-win_amd64.whl
+</code></pre></td></tr></table>
+</div>
+</div><p>最後に，「<a href="https://raw.githubusercontent.com/googleapis/python-speech/master/samples/microphone/transcribe_streaming_mic.py" target="blank">python-speech</a>」を「transcribe_streaming_mic.py」という名前で保存しよう。自分がテストをするところに保存すればよい。たとえば，「C:\Users\taro\」で作業をしているのであれば「transcribe_streaming_mic.py」もそこに置く。</p>
+<p>この「transcribe_streaming_mic.py」をテキストエディタで開いて<kbd>CTRL</kbd>+<kbd>F</kbd>で「language_code =」を検索する。そして，「en-US」となっているところを「ja-JP」に変更する。これで準備完了。</p>
+<h1 id="実行">実行</h1>
+<h2 id="ローカル">ローカル</h2>
+<p><code>python transcribe_streaming_mic.py</code>で実行し，日本語でしゃべってみると，冒頭で示したように文字起こしてくれる。以下は，韓国語を試した結果である。音声は，J-Hopeが「<a href="https://youtu.be/5aPe9Uy10n4?t=239" target="blank">BTS (방탄소년단) Speech at the 75th UN General Assembly</a>」で話したのを聞かせた。</p>
+<div style='position:relative; padding-bottom:calc(23.31% + 44px)'><iframe src='https://gfycat.com/ifr/GrippingShowyAmericanalligator' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;' allowfullscreen></iframe></div>
+<p>不正確なところもあるけど，かなりの精度だと思われる。</p>
+<h2 id="オンライン">オンライン</h2>
+<p>「<a href="https://cloud.google.com/speech-to-text/docs/sync-recognize" target="blank">短い音声ファイルの文字変換</a>」は，自分のパソコンにあるものを使ってできる。けど，1分を超えるとできないらしい。</p>
+<div class="admonition quote"><p class="admonition-title">「長い音声ファイルの文字変換」，最終アクセス：2020年11月16日</p>
+<p>1 分を超える音声ファイルは、Speech-to-Text で音声文字変換するには、Cloud Storage バケットに保存する必要があります。1 分を超えるローカル ファイルに対して非同期音声認識を実行すると、エラーになるか、不完全な音声文字変換が行われます。</p>
+</div>
+<p>では，1分を超える音声ファイルを「Google Cloud Platform Storage」にアップロードしてやってみよう。「<a href="https://console.cloud.google.com/storage/" target="blank">ストレージ ブラウザ</a>」を開いて「バケット」を作ろう。</p>
+<figure class="center">
+    <img src="http://drive.google.com/uc?export=view&amp;id=1U0Zr5VPkqzbk6n-JdtMkQw5LjPVXBFRv"/> <figcaption>
+            <h4>バケットを作成</h4>
+        </figcaption>
+</figure>
+<p>バケットに音声ファイルをアップロードする。今回使用した音声ファイルの拡張子は「flac」で， 「サンプルレート」は<strong>48,000</strong>Hzである。これは，後ほどコードを作成するときに必要なので，知らない場合は使用している音声ファイルのサンプルレートを調べておこう。</p>
+<figure class="center">
+    <img src="http://drive.google.com/uc?export=view&amp;id=1LzU2zY6m4ys2Dt_Zpn28IUOb16Y4BmYB" width="50%" height="50%"/> <figcaption>
+            <h4>「file.flac」というファイルをアップロードした</h4>
+        </figcaption>
+</figure>
+<p>アップロードしたファイルをクリックすると「オブジェクトの詳細」が表示される。ここでパスをコピーしておく。</p>
+<figure class="center">
+    <img src="http://drive.google.com/uc?export=view&amp;id=15xPIzAdreBnbITJ-155rPPHpuAblung0" width="50%" height="50%"/> <figcaption>
+            <h4>コピーする</h4>
+        </figcaption>
+</figure>
+<p>「<a href="https://cloud.google.com/speech-to-text/docs/async-recognize" target="blank">ドキュメント</a>」にあるサンプルをコピーして，<code>sample_rate_hertz</code>や<code>language_code</code>などを適当に修正する。音声ファイルの録音チャンネルが「2」の場合は<code>audio_channel_count=2</code>を追加しておく。</p>
+<p>なお，私の場合は<code>response = operation.result(timeout=90)</code>のところが問題だったので，<a href="https://github.com/googleapis/google-cloud-python/issues/6066" target="blank">ここ</a>を見て「timeout」の値を「1000」に変更した。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">io</span>
+
+<span class="k">def</span> <span class="nf">transcribe_gcs</span><span class="p">(</span><span class="n">gcs_uri</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;Asynchronously transcribes the audio file specified by the gcs_uri.&#34;&#34;&#34;</span>
+    <span class="kn">from</span> <span class="nn">google.cloud</span> <span class="kn">import</span> <span class="n">speech</span>
+
+    <span class="n">client</span> <span class="o">=</span> <span class="n">speech</span><span class="o">.</span><span class="n">SpeechClient</span><span class="p">()</span>
+
+    <span class="n">audio</span> <span class="o">=</span> <span class="n">speech</span><span class="o">.</span><span class="n">RecognitionAudio</span><span class="p">(</span><span class="n">uri</span><span class="o">=</span><span class="n">gcs_uri</span><span class="p">)</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">speech</span><span class="o">.</span><span class="n">RecognitionConfig</span><span class="p">(</span>
+        <span class="n">encoding</span><span class="o">=</span><span class="n">speech</span><span class="o">.</span><span class="n">RecognitionConfig</span><span class="o">.</span><span class="n">AudioEncoding</span><span class="o">.</span><span class="n">FLAC</span><span class="p">,</span>
+        <span class="n">sample_rate_hertz</span><span class="o">=</span><span class="mi">48000</span><span class="p">,</span>
+        <span class="n">language_code</span><span class="o">=</span><span class="s2">&#34;ja-JP&#34;</span><span class="p">,</span>
+        <span class="n">audio_channel_count</span><span class="o">=</span><span class="mi">2</span>
+    <span class="p">)</span>
+
+    <span class="n">operation</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">long_running_recognize</span><span class="p">(</span>
+        <span class="n">request</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;config&#34;</span><span class="p">:</span> <span class="n">config</span><span class="p">,</span> <span class="s2">&#34;audio&#34;</span><span class="p">:</span> <span class="n">audio</span><span class="p">}</span>
+    <span class="p">)</span>
+
+    <span class="n">operation</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">long_running_recognize</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">audio</span><span class="o">=</span><span class="n">audio</span><span class="p">)</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Waiting for operation to complete...&#34;</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">operation</span><span class="o">.</span><span class="n">result</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+    <span class="c1"># Each result is for a consecutive portion of the audio. Iterate through</span>
+    <span class="c1"># them to get the transcripts for the entire audio file.</span>
+    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">results</span><span class="p">:</span>
+        <span class="c1"># The first alternative is the most likely one for this portion.</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">alternatives</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transcript</span><span class="p">)</span><span class="o">+</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+
+<span class="c1"># [END speech_transcribe_async_gcs]</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
+        <span class="n">description</span><span class="o">=</span><span class="vm">__doc__</span><span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">RawDescriptionHelpFormatter</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&#34;path&#34;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&#34;File or GCS path for audio file to be recognized&#34;</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&#34;gs://&#34;</span><span class="p">):</span>
+        <span class="n">transcribe_gcs</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">transcribe_file</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>これを，たとえば「quickstart.py」のように名前を付けて保存し，実行する。その際には，先ほどの「オブジェクトの詳細」のところでコピーしておいたパスを以下のように付け加える。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">python quickstart.py gs://stt-jp-bucket/test.flac
+</code></pre></td></tr></table>
+</div>
+</div><p>「Waiting for operation to complete&hellip;」というメッセージが出て，文字起こしが始まる。音声ファイルの長さによって，かかる時間も変わる。</p>
+<p>もし，音声ファイルの拡張子が「flac」以外で，うまくいかないのであれば，以下の「flacに変換」を参考に。</p>
+<h1 id="付録">付録</h1>
+<h2 id="flacに変換">flacに変換</h2>
+<p>ここでは「Audacity」を利用して「mp3」の音声ファイルを「flac」に変換してみる。</p>
+<p>まず，「<a href="https://www.audacityteam.org/download/" target="blank">Audacity</a>」をダウンロードしてインストールする。その後，「Audacity」を実行して音声ファイルを読み込み，<kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>E</kbd>，または，「ファイル」の「書き出し」で「音声の書き出し」を選択する。</p>
+<figure class="center">
+    <img src="http://drive.google.com/uc?export=view&amp;id=1ie8bfildepURWLnCJ5-TrxGMJQBGwV5j" width="75%" height="75%"/> <figcaption>
+            <h4>「FLACファイル」に保存しよう</h4>
+        </figcaption>
+</figure>
+<p>「flac」に変換されたものをバケットにアップロードして，もう一回やってみよう。</p>
+<h2 id="動画から音声抽出">動画から音声抽出</h2>
+<p>mp4形式の動画から音声だけをflac形式で抽出したい。ただし，抽出の前に，音声の再生速度を変更しておきたい。なお，この作業を繰り返しでやりたい。以下のコードを実行すると，この作業をやってくれる。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">moviepy.editor</span> <span class="kn">as</span> <span class="nn">mp</span>
+<span class="kn">from</span> <span class="nn">pydub</span> <span class="kn">import</span> <span class="n">AudioSegment</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">glob</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="s2">&#34;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">stt</span><span class="se">\\</span><span class="s2">&#34;</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s1">&#39;*.mp4&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="nb">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="c1"># 音声ファイルの読み込み</span>
+    <span class="n">clip</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">VideoFileClip</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+    
+    <span class="c1"># mp4の画像から音声のみをmp3形式で抽出</span>
+    <span class="n">clip</span><span class="o">.</span><span class="n">audio</span><span class="o">.</span><span class="n">write_audiofile</span><span class="p">(</span><span class="nb">file</span> <span class="o">+</span> <span class="s2">&#34;.mp3&#34;</span><span class="p">)</span>
+    <span class="c1"># 抽出したmp3をsoundに格納</span>
+    <span class="n">sound</span> <span class="o">=</span> <span class="n">AudioSegment</span><span class="o">.</span><span class="n">from_mp3</span><span class="p">(</span><span class="nb">file</span> <span class="o">+</span> <span class="s2">&#34;.mp3&#34;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">speed_change</span><span class="p">(</span><span class="n">sound</span><span class="p">,</span> <span class="n">speed</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+        <span class="c1"># Manually override the frame_rate. This tells the computer how many</span>
+        <span class="c1"># samples to play per second</span>
+        <span class="n">sound_with_altered_frame_rate</span> <span class="o">=</span> <span class="n">sound</span><span class="o">.</span><span class="n">_spawn</span><span class="p">(</span><span class="n">sound</span><span class="o">.</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&#34;frame_rate&#34;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">sound</span><span class="o">.</span><span class="n">frame_rate</span> <span class="o">*</span> <span class="n">speed</span><span class="p">)</span>
+        <span class="p">})</span>
+        <span class="c1"># convert the sound with altered frame rate to a standard frame rate</span>
+        <span class="c1"># so that regular playback programs will work right. They often only</span>
+        <span class="c1"># know how to play audio at standard frame rate (like 44.1k)</span>
+        <span class="k">return</span> <span class="n">sound_with_altered_frame_rate</span><span class="o">.</span><span class="n">set_frame_rate</span><span class="p">(</span><span class="n">sound</span><span class="o">.</span><span class="n">frame_rate</span><span class="p">)</span>
+
+    <span class="c1"># 音声の再生速度を変更</span>
+    <span class="n">slow_sound</span> <span class="o">=</span> <span class="n">speed_change</span><span class="p">(</span><span class="n">sound</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">)</span>
+    <span class="c1"># fast_sound = speed_change(sound, 2.0)</span>
+
+
+    <span class="c1"># 再生速度を変更した音声ファイルをflacに変更して保存</span>
+    <span class="n">slow_sound</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">file</span> <span class="o">+</span> <span class="s2">&#34;.flac&#34;</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s2">&#34;flac&#34;</span><span class="p">)</span>
+
+<span class="c1"># 変換が終わったmp3ファイルは必要ないのですべて削除</span>
+<span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Users</span><span class="se">\\</span><span class="s1">stt</span><span class="se">\\</span><span class="s1">*.mp3&#39;</span><span class="p">)]</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="sttの繰り返し">STTの繰り返し</h2>
+<p>もし，音声ファイルが一つや二つくらいであれば，上述した操作を手動でやった方がいいだろう。しかし，音声ファイルが100個くらいあるのであれば，完璧ではなくてもいいので，ある程度は自動化をした方がよい。</p>
+<p>まず，「バケット」にアップロードした音声ファイルのURIリストを，「googleCloudP.txt」というテキストファイルに保存しておいた。このファイルを1行ずつ読み込み，文字起こしをする。その結果は，画面に表示させず，テキストファイルで保存する。その際に，ファイル名は先ほどのURIから「gs://stt-jp-bucket/」を取り除いた文字列とする。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">io</span><span class="o">,</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
+
+<span class="k">def</span> <span class="nf">transcribe_gcs</span><span class="p">(</span><span class="n">gcs_uri</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">google.cloud</span> <span class="kn">import</span> <span class="n">speech</span>
+
+    <span class="n">client</span> <span class="o">=</span> <span class="n">speech</span><span class="o">.</span><span class="n">SpeechClient</span><span class="p">()</span>
+
+    <span class="n">audio</span> <span class="o">=</span> <span class="n">speech</span><span class="o">.</span><span class="n">RecognitionAudio</span><span class="p">(</span><span class="n">uri</span><span class="o">=</span><span class="n">gcs_uri</span><span class="p">)</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">speech</span><span class="o">.</span><span class="n">RecognitionConfig</span><span class="p">(</span>
+        <span class="n">encoding</span><span class="o">=</span><span class="n">speech</span><span class="o">.</span><span class="n">RecognitionConfig</span><span class="o">.</span><span class="n">AudioEncoding</span><span class="o">.</span><span class="n">FLAC</span><span class="p">,</span>
+        <span class="n">sample_rate_hertz</span><span class="o">=</span><span class="mi">44100</span><span class="p">,</span>
+        <span class="n">language_code</span><span class="o">=</span><span class="s2">&#34;ja-JP&#34;</span><span class="p">,</span>
+        <span class="n">audio_channel_count</span><span class="o">=</span><span class="mi">2</span>
+    <span class="p">)</span>
+
+    <span class="n">operation</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">long_running_recognize</span><span class="p">(</span>
+        <span class="n">request</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;config&#34;</span><span class="p">:</span> <span class="n">config</span><span class="p">,</span> <span class="s2">&#34;audio&#34;</span><span class="p">:</span> <span class="n">audio</span><span class="p">}</span>
+    <span class="p">)</span>
+
+    <span class="n">operation</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">long_running_recognize</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">audio</span><span class="o">=</span><span class="n">audio</span><span class="p">)</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;Waiting for operation to complete...&#34;</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">operation</span><span class="o">.</span><span class="n">result</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">gcs_uri</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;gs://stt-jp-bucket[]</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.txt&#39;</span> <span class="o">%</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">results</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">alternatives</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transcript</span><span class="p">)</span><span class="o">+</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">googleCloudP.txt&#34;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+    <span class="n">newLine</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+    <span class="n">URI</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">newLine</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;[]</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">transcribe_gcs</span><span class="p">(</span><span class="n">URI</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/google/">Google</a>
+          <a href="/tags/speech-to-text/">Speech-to-Text</a>
+          <a href="/tags/google-cloud/">Google Cloud</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/repetition-reduplication/">
+            <span class="next-text nav-default">중복과 반복, 그리고 중복과 반복</span>
+            <span class="next-text nav-mobile">次の記事へ</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  <a href="https://linglingapp.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span>Mincheol</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

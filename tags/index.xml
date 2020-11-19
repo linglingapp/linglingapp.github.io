@@ -6,7 +6,34 @@
     <description>Recent content in Tags on Japanese &amp; Korean</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 06 Nov 2020 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Nov 2020 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google</title>
+      <link>https://linglingapp.github.io/tags/google/</link>
+      <pubDate>Fri, 13 Nov 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/tags/google/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Google Cloud</title>
+      <link>https://linglingapp.github.io/tags/google-cloud/</link>
+      <pubDate>Fri, 13 Nov 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/tags/google-cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Speech-to-Text</title>
+      <link>https://linglingapp.github.io/tags/speech-to-text/</link>
+      <pubDate>Fri, 13 Nov 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/tags/speech-to-text/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>반복</title>
       <link>https://linglingapp.github.io/tags/%EB%B0%98%EB%B3%B5/</link>
@@ -40,15 +67,6 @@
       <pubDate>Tue, 20 Oct 2020 01:37:56 +0800</pubDate>
       
       <guid>https://linglingapp.github.io/tags/latex/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Google</title>
-      <link>https://linglingapp.github.io/tags/google/</link>
-      <pubDate>Sat, 17 Oct 2020 01:37:56 +0800</pubDate>
-      
-      <guid>https://linglingapp.github.io/tags/google/</guid>
       <description></description>
     </item>
     
@@ -193,6 +211,15 @@
       <pubDate>Sun, 28 Jun 2020 01:37:56 +0800</pubDate>
       
       <guid>https://linglingapp.github.io/tags/%E9%87%9C%E5%B1%B1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>釜山方言</title>
+      <link>https://linglingapp.github.io/tags/%E9%87%9C%E5%B1%B1%E6%96%B9%E8%A8%80/</link>
+      <pubDate>Sun, 28 Jun 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/tags/%E9%87%9C%E5%B1%B1%E6%96%B9%E8%A8%80/</guid>
       <description></description>
     </item>
     

@@ -49,7 +49,7 @@
 <meta itemprop="description" content="「Speech-to-Text」(STT)という技術がある。Google Cloud Platformの「Cloud Speech-to-Text API」を利用して，以下のように，">
 <meta itemprop="datePublished" content="2020-11-13T01:37:56+08:00" />
 <meta itemprop="dateModified" content="2020-11-13T01:37:56+08:00" />
-<meta itemprop="wordCount" content="4507">
+<meta itemprop="wordCount" content="4751">
 
 
 
@@ -130,13 +130,15 @@
         <div class="post-category">
             <a href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/"> 日本語 </a>
             </div>
+          <span class="more-meta"> 4751 文字 </span>
+          <span class="more-meta"> 読了時間: 10 分 </span>
         
       </div>
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">目次</h2>
-  <div class="post-toc-content">
+  <h2 class="post-toc-title">CONTENTS</h2>
+  <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
     <li><a href="#準備">準備</a>
@@ -157,6 +159,7 @@
         <li><a href="#flacに変換">flacに変換</a></li>
         <li><a href="#動画から音声抽出">動画から音声抽出</a></li>
         <li><a href="#sttの繰り返し">STTの繰り返し</a></li>
+        <li><a href="#料金">料金</a></li>
       </ul>
     </li>
   </ul>
@@ -585,7 +588,20 @@ pip install google-cloud-speech
 <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></td></tr></table>
 </div>
-</div>
+</div><h2 id="料金">料金</h2>
+<p>Cloud Speech-to-Textの<a href="https://cloud.google.com/speech-to-text/pricing?hl=ja#pricing_table" target="blank">料金表</a>を見ると，標準モデルの音声認識（データロギングなし - デフォルト）は，60分を超える場合，（100万分までは）「$0.006/15 秒」である。今回使用した料金を確認してみると，以下のようになっている。</p>
+<figure class="center">
+    <img src="https://drive.google.com/uc?export=view&amp;id=1YYDRK0Ps9tMAPVX-vsSKqtPdtiALXVXF"/> <figcaption>
+            <h4>無料トライアルでもらったクレジットが自動で引き落としされている</h4>
+        </figcaption>
+</figure>
+<p>約30時間で4,323円なので，1時間分の文字起こしで144円くらいになるのだろうか。クレジットを確認してみると，まだ残っていることがわかる。</p>
+<figure class="center">
+    <img src="https://drive.google.com/uc?export=view&amp;id=1Z568oXnmMDVXhaUxAt6csBBXClEwD02w" width="50%" height="50%"/> <figcaption>
+            <h4>まだクレジットは残っているが有効期限は3か月</h4>
+        </figcaption>
+</figure>
+
     </div>
 
     
@@ -666,6 +682,17 @@ pip install google-cloud-speech
 
 <script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
 
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-YEYS2GL3GY', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Google Analytics on Japanese &amp; Korean</title>
+    <link>https://linglingapp.github.io/tags/google-analytics/</link>
+    <description>Recent content in Google Analytics on Japanese &amp; Korean</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 01 Jun 2020 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/tags/google-analytics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo와 Google Analytics</title>
+      <link>https://linglingapp.github.io/post/hugo/</link>
+      <pubDate>Mon, 01 Jun 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/post/hugo/</guid>
+      <description>Hugo에 Google Analytics을 적용했는데 제대로 작동하지 않았다. 일반적으로는 &amp;lsquo;config.toml&amp;rsquo;에 있는 googleAnalytics = &amp;quot;&amp;quot; #</description>
+    </item>
+    
+  </channel>
+</rss>

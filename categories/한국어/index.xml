@@ -98,6 +98,15 @@
     </item>
     
     <item>
+      <title>Hugo와 Google Analytics</title>
+      <link>https://linglingapp.github.io/post/hugo/</link>
+      <pubDate>Mon, 01 Jun 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/post/hugo/</guid>
+      <description>Hugo에 Google Analytics을 적용했는데 제대로 작동하지 않았다. 일반적으로는 &amp;lsquo;config.toml&amp;rsquo;에 있는 googleAnalytics = &amp;quot;&amp;quot; #</description>
+    </item>
+    
+    <item>
       <title>&#39;부작용&#39;의 일본어 발음</title>
       <link>https://linglingapp.github.io/post/side-effect/</link>
       <pubDate>Fri, 02 Nov 2012 01:37:56 +0800</pubDate>

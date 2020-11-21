@@ -49,7 +49,7 @@
 <meta itemprop="description" content="「Speech-to-Text」(STT)という技術がある。Google Cloud Platformの「Cloud Speech-to-Text API」を利用して，以下のように，">
 <meta itemprop="datePublished" content="2020-11-13T01:37:56+08:00" />
 <meta itemprop="dateModified" content="2020-11-13T01:37:56+08:00" />
-<meta itemprop="wordCount" content="4491">
+<meta itemprop="wordCount" content="4605">
 
 
 
@@ -136,7 +136,7 @@
 
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">目次</h2>
-  <div class="post-toc-content always-active">
+  <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
     <li><a href="#準備">準備</a>
@@ -164,7 +164,7 @@
   </div>
 </div>
     <div class="post-content">
-      <p>「Speech-to-Text」(STT)という技術がある。Google Cloud Platformの「Cloud Speech-to-Text API」を利用して，以下のように，音声を日本語で文字起こしてみた。読み上げた文章は，ドラマ『孤独のグルメ』のイントロダクションに流れる<a href="https://www.tv-tokyo.co.jp/kodokunogurume2/intro/index.html" target="blank">あのセリフ</a>で，読み手はAI翻訳機「<a href="https://papago.naver.com/" target="blank">PAPAGO</a>」である。画面にある🔈をクリックすると，音声を聞くことができる。</p>
+      <p>「Speech-to-Text」(STT)という技術がある。Google Cloud Platformの「Cloud Speech-to-Text API」を利用して，以下のように，音声を日本語で文字起こしてみた。読み上げた文章は，ドラマ『孤独のグルメ』のイントロダクションに流れる<a href="https://www.tv-tokyo.co.jp/kodokunogurume2/intro/index.html" target="blank">あのセリフ</a>で，読み手はAI翻訳機「<a href="https://papago.naver.com/" target="blank">PAPAGO</a>」である。画面にある🔈をクリックすると，音声を聞くことができる（スマホではできない場合もある）。</p>
 <div style='position:relative; padding-bottom:calc(30.00% + 44px)'><iframe src='https://gfycat.com/ifr/FragrantSlimyBagworm' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;' allowfullscreen></iframe></div>
 <p>私がテストした環境は，以下の通りである。</p>
 <div class="admonition info"><p class="admonition-title">info</p>
@@ -585,7 +585,25 @@ pip install google-cloud-speech
 <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></td></tr></table>
 </div>
-</div>
+</div><div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-linglingapp-github-io.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
 
     
@@ -597,8 +615,8 @@ pip install google-cloud-speech
           </div>
       <nav class="post-nav">
         
-        <a class="next" href="/post/repetition-reduplication/">
-            <span class="next-text nav-default">중복과 반복, 그리고 중복과 반복</span>
+        <a class="next" href="/post/mapping/">
+            <span class="next-text nav-default">方言地図作成</span>
             <span class="next-text nav-mobile">次の記事へ</span>
             <i class="iconfont icon-right"></i>
           </a>
@@ -606,7 +624,20 @@ pip install google-cloud-speech
     </footer>
   </article>
         </div>
-        
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'https-linglingapp-github-io';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
   
 

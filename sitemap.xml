@@ -16,6 +16,48 @@
   </url>
   
   <url>
+    <loc>https://linglingapp.github.io/</loc>
+    <lastmod>2021-01-09T01:37:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://linglingapp.github.io/post/</loc>
+    <lastmod>2021-01-09T01:37:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://linglingapp.github.io/tags/</loc>
+    <lastmod>2021-01-09T01:37:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://linglingapp.github.io/tags/%E3%83%90%E3%82%B1%E3%83%83%E3%83%88%E3%83%AA%E3%82%B9%E3%83%88/</loc>
+    <lastmod>2021-01-09T01:37:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://linglingapp.github.io/post/the-bucket-list/</loc>
+    <lastmod>2021-01-09T01:37:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://linglingapp.github.io/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/</loc>
+    <lastmod>2021-01-09T01:37:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://linglingapp.github.io/tags/google/</loc>
     <lastmod>2020-11-13T01:37:56+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -37,36 +79,8 @@
   </url>
   
   <url>
-    <loc>https://linglingapp.github.io/</loc>
-    <lastmod>2021-01-09T01:37:56+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://linglingapp.github.io/post/</loc>
-    <lastmod>2021-01-09T01:37:56+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://linglingapp.github.io/tags/speech-to-text/</loc>
     <lastmod>2020-11-13T01:37:56+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://linglingapp.github.io/tags/</loc>
-    <lastmod>2021-01-09T01:37:56+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://linglingapp.github.io/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/</loc>
-    <lastmod>2021-01-09T01:37:56+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

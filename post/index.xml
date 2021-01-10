@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Japanese &amp; Korean</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 13 Nov 2020 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Jan 2021 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>バケットリスト</title>
+      <link>https://linglingapp.github.io/post/the-bucket-list/</link>
+      <pubDate>Fri, 01 Jan 2021 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/post/the-bucket-list/</guid>
+      <description>新年ということで，GitHubに公開されているJinHさんのコードを使って，「バケットリスト」を作った。Google Chrome以外のウェブ</description>
+    </item>
+    
     <item>
       <title>GoogleのCloud Speech-to-Text APIを使ってみた</title>
       <link>https://linglingapp.github.io/post/google-speech-to-text/</link>

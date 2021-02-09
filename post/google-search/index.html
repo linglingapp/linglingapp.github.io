@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Google検索とInstagram検索 - Japanese &amp; Korean</title>
+  <title>Google検索とURLに関して - Japanese &amp; Korean</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -39,23 +39,23 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Google検索とInstagram検索" />
+<meta property="og:title" content="Google検索とURLに関して" />
 <meta property="og:description" content="2020年10月13日放送分の「マツコの知らない世界」で，「ハッシュタグの世界」というテーマを取り上げた。Instagramをしないので色々" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://linglingapp.github.io/post/google-search/" />
 <meta property="article:published_time" content="2020-10-17T01:37:56+08:00" />
-<meta property="article:modified_time" content="2020-10-17T01:37:56+08:00" />
-<meta itemprop="name" content="Google検索とInstagram検索">
+<meta property="article:modified_time" content="2021-02-01T01:37:56+08:00" />
+<meta itemprop="name" content="Google検索とURLに関して">
 <meta itemprop="description" content="2020年10月13日放送分の「マツコの知らない世界」で，「ハッシュタグの世界」というテーマを取り上げた。Instagramをしないので色々">
 <meta itemprop="datePublished" content="2020-10-17T01:37:56+08:00" />
-<meta itemprop="dateModified" content="2020-10-17T01:37:56+08:00" />
-<meta itemprop="wordCount" content="1882">
+<meta itemprop="dateModified" content="2021-02-01T01:37:56+08:00" />
+<meta itemprop="wordCount" content="3693">
 
 
 
 <meta itemprop="keywords" content="Google,Instagram,Google search,Google search operators,URL," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Google検索とInstagram検索"/>
+<meta name="twitter:title" content="Google検索とURLに関して"/>
 <meta name="twitter:description" content="2020年10月13日放送分の「マツコの知らない世界」で，「ハッシュタグの世界」というテーマを取り上げた。Instagramをしないので色々"/>
 
 <!--[if lte IE 9]>
@@ -124,50 +124,62 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Google検索とInstagram検索</h1>
+      <h1 class="post-title">Google検索とURLに関して</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2020年10月17日 </span>
         <div class="post-category">
             <a href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/"> 日本語 </a>
             </div>
-          <span class="more-meta"> 1882 文字 </span>
-          <span class="more-meta"> 読了時間: 4 分 </span>
+          <span class="more-meta"> 3693 文字 </span>
+          <span class="more-meta"> 読了時間: 8 分 </span>
         
       </div>
     </header>
 
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">CONTENTS</h2>
-  <div class="post-toc-content always-active">
+  <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
     <li><a href="#完全一致検索">完全一致検索</a></li>
     <li><a href="#site検索">site検索</a></li>
     <li><a href="#inurl検索">inurl検索</a></li>
+    <li><a href="#urlを読む">URLを読む</a>
+      <ul>
+        <li><a href="#日本語のデコード">日本語のデコード</a>
+          <ul>
+            <li><a href="#q">q</a></li>
+            <li><a href="#op">op</a></li>
+          </ul>
+        </li>
+        <li><a href="#filter">filter</a></li>
+        <li><a href="#sxsrf">sxsrf</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <p>2020年10月13日放送分の「マツコの知らない世界」で，「ハッシュタグの世界」というテーマを取り上げた。Instagramをしないので色々勉強にはなったが，自分が愛してやまないGoogleがディスられている気がした。そこで，Instagramではできないような，検索エンジンならではの検索について書いておきたい。以下では，Googleの「<a href="https://support.google.com/websearch/answer/2466433?hl=ja" target="_blank">ウェブ検索の精度を高める</a>」を参考に作成するが，そこにはない検索方法もいくつかある。なお，先ほどページ（「ウェブ検索の精度を高める」）は更新される可能性があり，本来は使えることができた検索方法がある日突然使えなくなったり，新たな検索演算子が使えるようになる場合もある。</p>
+      <p>2020年10月13日放送分の「マツコの知らない世界」で，「ハッシュタグの世界」というテーマを取り上げた。Instagramをしないので色々勉強にはなったが，自分が愛してやまないGoogleがディスられている気がした。そこで，Instagramではできないような，検索エンジンならではの検索について書いておきたい。以下では，Googleの「<a href="https://support.google.com/websearch/answer/2466433?hl=ja" target="_blank">ウェブ検索の精度を高める</a>」を参考に作成するが，そこにはない検索方法もいくつかある。なお，検索演算子の機能は更新される可能性があり，本来は使用できた検索方法が，ある日突然使えなくなったり，新たな検索演算子が使えるようになる場合もある。</p>
 <figure class="center">
     <img src="https://drive.google.com/uc?export=view&amp;id=1g2P394-7zmQg5xTTuwJCdcn_5quRe92T"/> <figcaption>
             <h4>「マツコの知らない世界」(2020年10月13日放送分)</h4>
         </figcaption>
 </figure>
 <h1 id="完全一致検索">完全一致検索</h1>
-<p>番組では，Googleで「マツコの知らない世界」を検索すると，ワードがバラバラになってヒットすると言っている。</p>
+<p>番組では，Googleを利用して「マツコの知らない世界」を検索すると，ワードがバラバラになってヒットすると言っている。</p>
 <figure class="center">
     <img src="https://drive.google.com/uc?export=view&amp;id=1dYWn9KP_v5KfK9_k2nuDD0qRIWgUPEvc"/> <figcaption>
             <h4>「マツコの知らない世界」(2020年10月13日放送分)</h4>
         </figcaption>
 </figure>
 <p>検索語をバラバラにさせないためには「完全一致」を表す「&quot;&quot;」を利用すればよい。Googleではこの機能について「単語や語句を引用符で囲みます」と述べている。
-つまり，「マツコの知らない世界」を検索するのであれば，<a href="https://www.google.com/search?sxsrf=ALeKk02CgfGr7gJZDWiMx57r_oeXBXieVA%3A1602933100762&source=hp&ei=bNGKX5GdK4O5wAPnq6_YDA&q=%22%E3%83%9E%E3%83%84%E3%82%B3%E3%81%AE%E7%9F%A5%E3%82%89%E3%81%AA%E3%81%84%E4%B8%96%E7%95%8C%22&oq=%22%E3%83%9E%E3%83%84%E3%82%B3%E3%81%AE%E7%9F%A5%E3%82%89%E3%81%AA%E3%81%84%E4%B8%96%E7%95%8C%22&gs_lcp=CgZwc3ktYWIQAzIMCAAQsQMQsQMQBBAlMgYIABAEECUyBggAEAQQJTIGCAAQBxAeMgYIABAEECUyBggAEAQQJTIGCAAQBBAlMgYIABAEECU6CAgAELEDEIMBOgIIADoFCAAQsQM6BwgjEOoCECc6BAgjECc6CQgAELEDEAQQJToICAAQBxAEEB5QwgNYlRlg4xtoAXAAeACAAXOIAeYHkgEDNC42mAEAoAEBqgEHZ3dzLXdperABCg&sclient=psy-ab&ved=0ahUKEwiRg8SQv7vsAhWDHHAKHefVC8sQ4dUDCAk&uact=5" target="_blank"><code>&quot;マツコの知らない世界&quot;</code></a>のようにすればよい。ここで「&quot;&quot;」のような記号を，<strong>検索演算子</strong>（search operator）という。なお，検索演算子は半角（&quot;&quot;）で入力するのが基本である。しかし，Googleの検索エンジンは全角の「””」も対応している。他の検索エンジンでも全角が対応するとは限らないので，注意が必要である。たとえば，Microsoftの検索エンジン<a href="https://www.bing.com" target="blank">Bing</a>では，現在のところ，半角しか対応しない。</p>
+つまり，「マツコの知らない世界」を検索するのであれば，<a href="https://www.google.com/search?sxsrf=ALeKk02CgfGr7gJZDWiMx57r_oeXBXieVA%3A1602933100762&source=hp&ei=bNGKX5GdK4O5wAPnq6_YDA&q=%22%E3%83%9E%E3%83%84%E3%82%B3%E3%81%AE%E7%9F%A5%E3%82%89%E3%81%AA%E3%81%84%E4%B8%96%E7%95%8C%22&oq=%22%E3%83%9E%E3%83%84%E3%82%B3%E3%81%AE%E7%9F%A5%E3%82%89%E3%81%AA%E3%81%84%E4%B8%96%E7%95%8C%22&gs_lcp=CgZwc3ktYWIQAzIMCAAQsQMQsQMQBBAlMgYIABAEECUyBggAEAQQJTIGCAAQBxAeMgYIABAEECUyBggAEAQQJTIGCAAQBBAlMgYIABAEECU6CAgAELEDEIMBOgIIADoFCAAQsQM6BwgjEOoCECc6BAgjECc6CQgAELEDEAQQJToICAAQBxAEEB5QwgNYlRlg4xtoAXAAeACAAXOIAeYHkgEDNC42mAEAoAEBqgEHZ3dzLXdperABCg&sclient=psy-ab&ved=0ahUKEwiRg8SQv7vsAhWDHHAKHefVC8sQ4dUDCAk&uact=5" target="_blank"><code>&quot;マツコの知らない世界&quot;</code></a>のようにすればよい。この「&quot;&quot;」のような記号を，<strong>検索演算子</strong>（search operator）という。なお，検索演算子は半角（&quot;&quot;）で入力するのが基本である。しかし，Googleの検索エンジンは全角の「””」にも対応している。他の検索エンジンで全角が対応するとは限らないので，注意が必要である。たとえば，Microsoftの検索エンジン<a href="https://www.bing.com" target="blank">Bing</a>では，現在のところ，半角しか対応しない。</p>
 <h1 id="site検索">site検索</h1>
-<p>「私はBTSが好きだ」という文の中の「BTS」は何を指し示しているのだろうか。あなたがArmyならば，「BTS」は間違いなく「防弾少年団」のことであろう。しかし，言語学やコーパスに興味がある人であれば，「BTS」という語は「防弾少年団」以外に，「基本的な文字化の原則（<strong>B</strong>asic <strong>T</strong>ranscription <strong>S</strong>ystem）」という頭字語（acronym）を思い浮かべるのかもしれない。</p>
-<p>後者の「BTS」を調べるつもりで，Googleで「BTS」とググってみると，前者の「BTS」しか出てこない。前者の「BTS」はいらないので，後者の「BTS」についてだけ調べたい場合は，site検索を利用してみよう。</p>
+<p>「私はBTSが好きだ」という文の中の「BTS」は何を指しているのだろうか。あなたが<a href="https://ja.wikipedia.org/wiki/BTS_(%E9%9F%B3%E6%A5%BD%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97)" target="blank">ARMY</a>ならば，「BTS」は間違いなく「防弾少年団」のことであろう。しかし，言語学やコーパスに興味がある人であれば，「BTS」という語は「防弾少年団」以外に，「基本的な文字化の原則（<strong>B</strong>asic <strong>T</strong>ranscription <strong>S</strong>ystem）」という頭字語（acronym）を思い浮かべるのかもしれない。</p>
+<p>後者の「BTS」を調べるつもりで，Googleで「BTS」とググってみると，前者の「BTS」しか出てこない。後者の「BTS」についてだけ調べたい場合は，site検索を利用してみよう。</p>
 <figure class="center">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/DynamiteLogo.png/1200px-DynamiteLogo.png"/> <figcaption>
             <h4>아미 여러분, 저는 방탄소년단을 좋아합니다.</h4>
@@ -180,12 +192,66 @@
 <blockquote>
 <p><a href="https://b.hatena.ne.jp/entry/www.tufs.ac.jp/ts/personal/usamiken/corpora.htm">https://b.hatena.ne.jp/entry/www.tufs.ac.jp/ts/personal/usamiken/corpora.htm</a></p>
 </blockquote>
-<p>これは，「東京外国語大学」のサーバーから発信されたものではない。単にブックマークに登録されているURLの中に「tufs.ac.jp」が含まれていたので引っかかったのである。当然，上記のブックマークは，<code>&quot;BTS&quot; site:tufs.ac.jp</code>で検索すると出てこない。</p>
+<p>これは，「東京外国語大学」のサーバーから発信されているものではない。単にブックマークに登録されているURLの中に「tufs.ac.jp」が含まれていたので引っかかったのである。当然，上記のブックマークは，<code>&quot;BTS&quot; site:tufs.ac.jp</code>で検索すると出てこない。</p>
+<h1 id="urlを読む">URLを読む</h1>
+<p>Google検索をするときに表示されるURLには，どのような意味があるのだろうか<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。</p>
+<p>最近，「ほぼ」を<a href="https://linglingapp.github.io/post/repetition-reduplication/#gsc.tab=0" target="blank">重複</a>させた「ほぼほぼ」が気になっている。以前，テレビ番組で誰かが「ほぼほぼ100パーセント」と言っていた。この「ほぼ100パーセント」をGoogleで調べてみる。</p>
+<blockquote>
+<p><a href="https://www.google.com/search?biw=1280&bih=587&sxsrf=ALeKk03TXtnFcu922Dw3-rjPBeZwRy1dAw%3A1606175215577&ei=70m8X6vhIpHbhwOPxbS4Cg&q=%22%E3%81%BB%E3%81%BC%E3%81%BB%E3%81%BC100%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%22&oq=%22%E3%81%BB%E3%81%BC%E3%81%BB%E3%81%BC100%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%22&gs_lcp=CgZwc3ktYWIQAzIFCAAQzQIyBQgAEM0CMgUIABDNAjoECCMQJzoECAAQQzoECAAQBDoGCAAQBxAeOggIABCxAxCDAToCCAA6DAgAELEDEIMBEAQQJToMCAAQsQMQsQMQBBAlOgkIABCxAxAEECU6BggAEAQQJToICAAQBxAEEB46CAgAEAQQChAlOgoIABAHEAQQChAeOggIABAEEAMQJVDaD1jnkglg-pwJaANwAHgBgAGzAogBkBeSAQgxNi44LjEuMZgBAKABAaoBB2d3cy13aXrAAQE&sclient=psy-ab&ved=0ahUKEwjrlK_57JntAhWR7WEKHY8iDacQ4dUDCA0&uact=5" target="blank">&ldquo;ほぼほぼ100パーセント&rdquo;</a></p>
+</blockquote>
+<p>検索結果が現れたときのURLを見ると，以下のようになっている。</p>
+<div class="admonition note"><p class="admonition-title">「ほぼほぼ100パーセント」をGoogleで検索したときのURL</p>
+<p><a href="https://www.google.com/search?biw=1280&amp;bih=587&amp;sxsrf=ALeKk03TXtnFcu922Dw3-rjPBeZwRy1dAw%3A1606175215577&amp;ei=70m8X6vhIpHbhwOPxbS4Cg&amp;q=%22%E3%81%BB%E3%81%BC%E3%81%BB%E3%81%BC100%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%22&amp;oq=%22%E3%81%BB%E3%81%BC%E3%81%BB%E3%81%BC100%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%22&amp;gs_lcp=CgZwc3ktYWIQAzIFCAAQzQIyBQgAEM0CMgUIABDNAjoECCMQJzoECAAQQzoECAAQBDoGCAAQBxAeOggIABCxAxCDAToCCAA6DAgAELEDEIMBEAQQJToMCAAQsQMQsQMQBBAlOgkIABCxAxAEECU6BggAEAQQJToICAAQBxAEEB46CAgAEAQQChAlOgoIABAHEAQQChAeOggIABAEEAMQJVDaD1jnkglg-pwJaANwAHgBgAGzAogBkBeSAQgxNi44LjEuMZgBAKABAaoBB2d3cy13aXrAAQE&amp;sclient=psy-ab&amp;ved=0ahUKEwjrlK_57JntAhWR7WEKHY8iDacQ4dUDCA0&amp;uact=5">https://www.google.com/search?biw=1280&amp;bih=587&amp;sxsrf=ALeKk03TXtnFcu922Dw3-rjPBeZwRy1dAw%3A1606175215577&amp;ei=70m8X6vhIpHbhwOPxbS4Cg&amp;q=%22%E3%81%BB%E3%81%BC%E3%81%BB%E3%81%BC100%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%22&amp;oq=%22%E3%81%BB%E3%81%BC%E3%81%BB%E3%81%BC100%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%22&amp;gs_lcp=CgZwc3ktYWIQAzIFCAAQzQIyBQgAEM0CMgUIABDNAjoECCMQJzoECAAQQzoECAAQBDoGCAAQBxAeOggIABCxAxCDAToCCAA6DAgAELEDEIMBEAQQJToMCAAQsQMQsQMQBBAlOgkIABCxAxAEECU6BggAEAQQJToICAAQBxAEEB46CAgAEAQQChAlOgoIABAHEAQQChAeOggIABAEEAMQJVDaD1jnkglg-pwJaANwAHgBgAGzAogBkBeSAQgxNi44LjEuMZgBAKABAaoBB2d3cy13aXrAAQE&amp;sclient=psy-ab&amp;ved=0ahUKEwjrlK_57JntAhWR7WEKHY8iDacQ4dUDCA0&amp;uact=5</a></p>
+</div>
+<p>この長ったらしいURLは，何を意味するのだろうか。</p>
+<h2 id="日本語のデコード">日本語のデコード</h2>
+<h3 id="q">q</h3>
+<p>URLの中に「q=」で始まるところがある。以下は，先ほどの長ったらしいURLから，その部分を抜き出したものである。</p>
+<div class="admonition note"><p class="admonition-title">これは日本語です</p>
+<p>%22%E3%81%BB%E3%81%BC%E3%81%BB%E3%81%BC100%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%22&amp;oq=%22%E3%81%BB%E3%81%BC%E3%81%BB%E3%81%BC100%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%22</p>
+</div>
+<p>「 <a href="https://www.convertstring.com/ja/EncodeDecode/UrlDecode" target="blank">Online Url Decoder</a>」というURLデコーダー（decoder）を利用して，日本語に変換してみる。</p>
+<div class="admonition note"><p class="admonition-title">これは日本語です</p>
+<p>&ldquo;ほぼほぼ100パーセント&rdquo;&amp;oq=&ldquo;ほぼほぼ100パーセント&rdquo;</p>
+</div>
+<p>ところで，なぜ「&ldquo;ほぼほぼ100パーセント&rdquo;」が2回使われているのだろうか。「op=」は何だろう。</p>
+<h3 id="op">op</h3>
+<p>「op」は，検索窓で私が入力した文字列を表す。先ほど見たように，「op」に与えられた文字列は「q」に与えられた文字列と完全に同じであった。</p>
+<p>( ﾟДﾟ)ﾊｧ?</p>
+<p>両者の違いを知るために，Googleの自動補完機能を利用してみる。検索窓に「防弾少年団」と入力すると，下の方に「防弾少年団 ダイナマイト」という検索候補が現れる。これをクリックして，「防弾少年団 ダイナマイト」で検索する。つまり，「防弾少年団」を入力したあと，「<span style="color:red"><strong>ダ</strong></span><span style="color:pink"><strong>イ</strong></span><span style="color:green"><strong>ナ</strong></span><span style="color:purple"><strong>マ</strong></span><span style="color:orange"><strong>イ</strong></span><span style="color:gold"><strong>ト</strong></span>」を自分の手で一つずつ入力するのではなく，Googleが教えてくれた検索候補から「防弾少年団 ダイナマイト」を選択するのである。検索結果の画面でURLのとろこを見ると，以下のようになっている。</p>
+<div class="admonition note"><p class="admonition-title">「q」と「op」が違う</p>
+<p>q=%E9%98%B2%E5%BC%BE%E5%B0%91%E5%B9%B4%E5%9B%A3+%E3%83%80%E3%82%A4%E3%83%8A%E3%83%9E%E3%82%A4%E3%83%88&amp;oq=%E9%98%B2%E5%BC%BE%E5%B0%91%E5%B9%B4%E5%9B%A3</p>
+</div>
+<p>わかりずらいけど，URLデコーダーで変換してみると次のようになる。</p>
+<div class="admonition note"><p class="admonition-title">「検索候補」と「直接入力」の関係</p>
+<p>q=防弾少年団 ダイナマイト&amp;oq=防弾少年団</p>
+</div>
+<p>つまり，検索結果のURLに含まれている「q」は「利用者が検索候補を選択して与えた文字列」である。一方，「op」は「利用者が直接入力した文字列」である。検索候補を選択せず，自分が入力した文字列で検索した場合には，検索候補の選択は行われなかったことになるので，「q」と「op」には同じ文字列が与えられるのである。ちなみに，この「q」や「op」のようなものは，パラメーターと呼ばれている。</p>
+<h2 id="filter">filter</h2>
+<p>Googleで検索をすると，最後のページの下段部分で，以下のようなメッセージを目にする。</p>
+<blockquote>
+<p>最も的確な検索結果を表示するために、上の ○○ 件と似たページは除外されています。検索結果をすべて表示するには、ここから再検索してください。</p>
+</blockquote>
+<p>Googleは賢い。しかし，人によっては，この機能が「余計なお世話」になる場合もあるだろう。検索結果を除外せず，すべての結果を表示させるためにはどのようにすればいいのだろうか。</p>
+<p>まずは，何がこのように検索結果を制限しているのかを調べてみる。「Google Search Appliance」というものがあるが，それが何なのかは別の機会に説明することにして，<a href="https://support.google.com/gsa/answer/2672256?hl=en" target="blank">Google Search Appliance Help</a>を見ると，「filter=0」という「query URL parameter」を与えることで，フィルターを通さず，すべての検索結果を表示させることができるらしい。では，これをURLの末尾に付け加えてみよう。</p>
+<div class="admonition note"><p class="admonition-title">すべての検索結果を表示させる</p>
+<p><a href="https://www.google.com/search?biw=1280&amp;bih=587&amp;sxsrf=ALeKk03TXtnFcu922Dw3-rjPBeZwRy1dAw%3A1606175215577&amp;ei=70m8X6vhIpHbhwOPxbS4Cg&amp;q=%22%E3%81%BB%E3%81%BC%E3%81%BB%E3%81%BC100%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%22&amp;oq=%22%E3%81%BB%E3%81%BC%E3%81%BB%E3%81%BC100%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%22&amp;gs_lcp=CgZwc3ktYWIQAzIFCAAQzQIyBQgAEM0CMgUIABDNAjoECCMQJzoECAAQQzoECAAQBDoGCAAQBxAeOggIABCxAxCDAToCCAA6DAgAELEDEIMBEAQQJToMCAAQsQMQsQMQBBAlOgkIABCxAxAEECU6BggAEAQQJToICAAQBxAEEB46CAgAEAQQChAlOgoIABAHEAQQChAeOggIABAEEAMQJVDaD1jnkglg-pwJaANwAHgBgAGzAogBkBeSAQgxNi44LjEuMZgBAKABAaoBB2d3cy13aXrAAQE&amp;sclient=psy-ab&amp;ved=0ahUKEwjrlK_57JntAhWR7WEKHY8iDacQ4dUDCA0&amp;uact=5&amp;filter=0">https://www.google.com/search?biw=1280&amp;bih=587&amp;sxsrf=ALeKk03TXtnFcu922Dw3-rjPBeZwRy1dAw%3A1606175215577&amp;ei=70m8X6vhIpHbhwOPxbS4Cg&amp;q=%22%E3%81%BB%E3%81%BC%E3%81%BB%E3%81%BC100%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%22&amp;oq=%22%E3%81%BB%E3%81%BC%E3%81%BB%E3%81%BC100%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%22&amp;gs_lcp=CgZwc3ktYWIQAzIFCAAQzQIyBQgAEM0CMgUIABDNAjoECCMQJzoECAAQQzoECAAQBDoGCAAQBxAeOggIABCxAxCDAToCCAA6DAgAELEDEIMBEAQQJToMCAAQsQMQsQMQBBAlOgkIABCxAxAEECU6BggAEAQQJToICAAQBxAEEB46CAgAEAQQChAlOgoIABAHEAQQChAeOggIABAEEAMQJVDaD1jnkglg-pwJaANwAHgBgAGzAogBkBeSAQgxNi44LjEuMZgBAKABAaoBB2d3cy13aXrAAQE&amp;sclient=psy-ab&amp;ved=0ahUKEwjrlK_57JntAhWR7WEKHY8iDacQ4dUDCA0&amp;uact=5&amp;filter=0</a></p>
+</div>
+<p>検索結果を除外していないことがわかる。</p>
+<h2 id="sxsrf">sxsrf</h2>
+<p>「sxsrf」が意味するのは，現在の画面が表示される直前の画面に接続したときの日付と時間である。なので，この「sxsrf=ALeKk03TXtnFcu922Dw3-rjPBeZwRy1dAw%3A1606175215577」のところは，なくても問題ない。上記のURLからこの部分を削除した以下のURL接続しても，同じ結果が得られる。</p>
+<div class="admonition note"><p class="admonition-title">sxsrfを削除したURL</p>
+<p><a href="https://www.google.com/search?biw=1280&amp;bih=587&amp;ei=70m8X6vhIpHbhwOPxbS4Cg&amp;q=%22%E3%81%BB%E3%81%BC%E3%81%BB%E3%81%BC100%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%22&amp;oq=%22%E3%81%BB%E3%81%BC%E3%81%BB%E3%81%BC100%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%22&amp;gs_lcp=CgZwc3ktYWIQAzIFCAAQzQIyBQgAEM0CMgUIABDNAjoECCMQJzoECAAQQzoECAAQBDoGCAAQBxAeOggIABCxAxCDAToCCAA6DAgAELEDEIMBEAQQJToMCAAQsQMQsQMQBBAlOgkIABCxAxAEECU6BggAEAQQJToICAAQBxAEEB46CAgAEAQQChAlOgoIABAHEAQQChAeOggIABAEEAMQJVDaD1jnkglg-pwJaANwAHgBgAGzAogBkBeSAQgxNi44LjEuMZgBAKABAaoBB2d3cy13aXrAAQE&amp;sclient=psy-ab&amp;ved=0ahUKEwjrlK_57JntAhWR7WEKHY8iDacQ4dUDCA0&amp;uact=5">https://www.google.com/search?biw=1280&amp;bih=587&amp;ei=70m8X6vhIpHbhwOPxbS4Cg&amp;q=%22%E3%81%BB%E3%81%BC%E3%81%BB%E3%81%BC100%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%22&amp;oq=%22%E3%81%BB%E3%81%BC%E3%81%BB%E3%81%BC100%E3%83%91%E3%83%BC%E3%82%BB%E3%83%B3%E3%83%88%22&amp;gs_lcp=CgZwc3ktYWIQAzIFCAAQzQIyBQgAEM0CMgUIABDNAjoECCMQJzoECAAQQzoECAAQBDoGCAAQBxAeOggIABCxAxCDAToCCAA6DAgAELEDEIMBEAQQJToMCAAQsQMQsQMQBBAlOgkIABCxAxAEECU6BggAEAQQJToICAAQBxAEEB46CAgAEAQQChAlOgoIABAHEAQQChAeOggIABAEEAMQJVDaD1jnkglg-pwJaANwAHgBgAGzAogBkBeSAQgxNi44LjEuMZgBAKABAaoBB2d3cy13aXrAAQE&amp;sclient=psy-ab&amp;ved=0ahUKEwjrlK_57JntAhWR7WEKHY8iDacQ4dUDCA0&amp;uact=5</a></p>
+</div>
+<p>この他にも数種類のパラメーターがある。その一部は，どのような機能があるのか，明らかになっている。しかし，Googleですべてのパラメーターについて説明をしているわけではないので，わからないところもいまだに多い。</p>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
 <p>「ウィキペディア」，最終アクセス：2020年11月11日 <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>このセクションにある情報は，2020年11月を基準に作成したものである。 <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>

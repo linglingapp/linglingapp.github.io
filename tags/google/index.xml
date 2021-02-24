@@ -6,7 +6,16 @@
     <description>Recent content in Google on Japanese &amp; Korean</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 13 Nov 2020 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/tags/google/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Feb 2021 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/tags/google/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Googleの検索結果をPythonでスクレイピング</title>
+      <link>https://linglingapp.github.io/post/python-web-scraping/</link>
+      <pubDate>Tue, 23 Feb 2021 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/post/python-web-scraping/</guid>
+      <description>Googleで何かを検索して，検索結果をすべてcsvファイルやテキストファイルで保存したい。 最近は，このような操作をしてくれるアプリケーショ</description>
+    </item>
+    
     <item>
       <title>GoogleのCloud Speech-to-Text APIを使ってみた</title>
       <link>https://linglingapp.github.io/post/google-speech-to-text/</link>

@@ -6,7 +6,43 @@
     <description>Recent content in Tags on Japanese &amp; Korean</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 30 Jan 2021 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Feb 2021 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google</title>
+      <link>https://linglingapp.github.io/tags/google/</link>
+      <pubDate>Tue, 23 Feb 2021 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/tags/google/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://linglingapp.github.io/tags/python/</link>
+      <pubDate>Tue, 23 Feb 2021 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>スクレイピング</title>
+      <link>https://linglingapp.github.io/tags/%E3%82%B9%E3%82%AF%E3%83%AC%E3%82%A4%E3%83%94%E3%83%B3%E3%82%B0/</link>
+      <pubDate>Tue, 23 Feb 2021 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/tags/%E3%82%B9%E3%82%AF%E3%83%AC%E3%82%A4%E3%83%94%E3%83%B3%E3%82%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>検索演算子</title>
+      <link>https://linglingapp.github.io/tags/%E6%A4%9C%E7%B4%A2%E6%BC%94%E7%AE%97%E5%AD%90/</link>
+      <pubDate>Tue, 23 Feb 2021 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/tags/%E6%A4%9C%E7%B4%A2%E6%BC%94%E7%AE%97%E5%AD%90/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>ジェスチャー</title>
       <link>https://linglingapp.github.io/tags/%E3%82%B8%E3%82%A7%E3%82%B9%E3%83%81%E3%83%A3%E3%83%BC/</link>
@@ -31,15 +67,6 @@
       <pubDate>Fri, 01 Jan 2021 01:37:56 +0800</pubDate>
       
       <guid>https://linglingapp.github.io/tags/%E3%83%90%E3%82%B1%E3%83%83%E3%83%88%E3%83%AA%E3%82%B9%E3%83%88/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Google</title>
-      <link>https://linglingapp.github.io/tags/google/</link>
-      <pubDate>Fri, 13 Nov 2020 01:37:56 +0800</pubDate>
-      
-      <guid>https://linglingapp.github.io/tags/google/</guid>
       <description></description>
     </item>
     
@@ -319,6 +346,15 @@
       <pubDate>Mon, 01 Jun 2020 01:37:56 +0800</pubDate>
       
       <guid>https://linglingapp.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>단어</title>
+      <link>https://linglingapp.github.io/tags/%EB%8B%A8%EC%96%B4/</link>
+      <pubDate>Sun, 10 May 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/tags/%EB%8B%A8%EC%96%B4/</guid>
       <description></description>
     </item>
     

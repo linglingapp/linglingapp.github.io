@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>検索演算子 on Japanese &amp; Korean</title>
+    <link>https://linglingapp.github.io/tags/%E6%A4%9C%E7%B4%A2%E6%BC%94%E7%AE%97%E5%AD%90/</link>
+    <description>Recent content in 検索演算子 on Japanese &amp; Korean</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Tue, 23 Feb 2021 01:37:56 +0800</lastBuildDate><atom:link href="https://linglingapp.github.io/tags/%E6%A4%9C%E7%B4%A2%E6%BC%94%E7%AE%97%E5%AD%90/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Googleの検索結果をPythonでスクレイピング</title>
+      <link>https://linglingapp.github.io/post/python-web-scraping/</link>
+      <pubDate>Tue, 23 Feb 2021 01:37:56 +0800</pubDate>
+      
+      <guid>https://linglingapp.github.io/post/python-web-scraping/</guid>
+      <description>Googleで何かを検索して，検索結果をすべてcsvファイルやテキストファイルで保存したい。 最近は，このような操作をしてくれるアプリケーショ</description>
+    </item>
+    
+  </channel>
+</rss>

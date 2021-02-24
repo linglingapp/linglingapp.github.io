@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Googleの検索結果をPythonでスクレイピング - Japanese &amp; Korean</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Mincheol" /><meta name="description" content="Googleで何かを検索して，検索結果をすべてcsvファイルやテキストファイルで保存したい。 最近は，このような操作をしてくれるアプリケーショ" /><meta name="keywords" content="Japanese, Korean" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.75.1 with theme even" />
+
+
+<link rel="canonical" href="https://linglingapp.github.io/post/python-web-scraping/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.d78211a776bbe598297e218ee3702e08e566305bcf813e901dbc19425572a5fd.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Googleの検索結果をPythonでスクレイピング" />
+<meta property="og:description" content="Googleで何かを検索して，検索結果をすべてcsvファイルやテキストファイルで保存したい。 最近は，このような操作をしてくれるアプリケーショ" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://linglingapp.github.io/post/python-web-scraping/" />
+<meta property="article:published_time" content="2021-02-23T01:37:56+08:00" />
+<meta property="article:modified_time" content="2021-02-23T01:37:56+08:00" />
+<meta itemprop="name" content="Googleの検索結果をPythonでスクレイピング">
+<meta itemprop="description" content="Googleで何かを検索して，検索結果をすべてcsvファイルやテキストファイルで保存したい。 最近は，このような操作をしてくれるアプリケーショ">
+<meta itemprop="datePublished" content="2021-02-23T01:37:56+08:00" />
+<meta itemprop="dateModified" content="2021-02-23T01:37:56+08:00" />
+<meta itemprop="wordCount" content="1297">
+
+
+
+<meta itemprop="keywords" content="Python,スクレイピング,Google,検索演算子," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Googleの検索結果をPythonでスクレイピング"/>
+<meta name="twitter:description" content="Googleで何かを検索して，検索結果をすべてcsvファイルやテキストファイルで保存したい。 最近は，このような操作をしてくれるアプリケーショ"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<script src="https://use.fontawesome.com/183c25ad06.js"></script>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Japanese &amp; Korean</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Japanese &amp; Korean</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+    
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Googleの検索結果をPythonでスクレイピング</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021年2月23日 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/"> 日本語 </a>
+            </div>
+          <span class="more-meta"> 1297 文字 </span>
+          <span class="more-meta"> 読了時間: 3 分 </span>
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
+      <p>Googleで何かを検索して，検索結果をすべてcsvファイルやテキストファイルで保存したい。
+最近は，このような操作をしてくれるアプリケーションもある。</p>
+<ul>
+<li><a href="https://www.listly.io/ko" target="blank">리스틀리 - 세상에서 가장 빠른 웹 데이터 추출 - Listly.io</a></li>
+<li><a href="https://www.octoparse.com/" target="blank">Octoparse: Web Scraping Tool &amp; Free Web Crawlers</a></li>
+</ul>
+<p>にもかかわらず，わけがあって，私は自分でスクレイピングをすることにした。簡単なスクレイピングは，プログラミング言語についての知識がほとんどなくてもできる（場合もある）。具体的には，以下のようなことをしたい。</p>
+<ol>
+<li>GoogleのURLと検索語を組み合わせて検索する。</li>
+<li>検索結果が画面に現れると次のページがあるのか，ないのかを確認する。</li>
+<li>検索結果から，タイトル・スニペット・URLを収集する。</li>
+<li>次のページがあれば，次のページに移動して「3」で行ったことを繰り返す。</li>
+</ol>
+<p>簡単簡単。このような作業をしてくれるPythonのコードは，ウェブで検索すると溢れだしている。適当に複数のコードを参考にして，以下のようなコードを作成した。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">urllib.parse</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+<span class="k">def</span> <span class="nf">get_last_page</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+  <span class="c1"># 「parser」のために「headers」を設定（cf. inspector, DOM）</span>
+  <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;user-agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36&#39;</span><span class="p">}</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+  <span class="c1"># リクエストが問題なく成功すれば</span>
+  <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&#34;html.parser&#34;</span><span class="p">)</span>
+    <span class="c1"># ページネーションを確認する try, except構文</span>
+    <span class="c1">## 検索結果が2ページ以上ある場合には「try」，1ページのみの場合は「except」</span>
+    <span class="k">try</span><span class="p">:</span>
+      <span class="n">pages</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&#34;table&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;class&#34;</span><span class="p">:</span><span class="s2">&#34;AaVjTc&#34;</span><span class="p">})</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&#34;a&#34;</span><span class="p">)</span>
+      <span class="n">last_page</span> <span class="o">=</span> <span class="n">pages</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+      <span class="k">print</span><span class="p">(</span><span class="s2">&#34;表示件数100件で検索した結果，&#34;</span> <span class="o">+</span> <span class="n">last_page</span> <span class="o">+</span> <span class="s2">&#34;ページがありました。&#34;</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+      <span class="n">last_page</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+  <span class="c1"># リクエストが失敗したらメッセージを送信</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;短時間で多くのリクエストを要請したので，Googleに怒られています。解除まで数時間かかります。&#34;</span><span class="p">)</span>
+  <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">last_page</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">extract_result_separate</span><span class="p">(</span><span class="n">a_result</span><span class="p">):</span>
+    <span class="c1"># 一つの検索結果からタイトル・スニペット・URLを抽出してDictionary作成</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">a_result</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&#34;h3&#34;</span><span class="p">,{</span><span class="s2">&#34;class&#34;</span><span class="p">:</span><span class="s2">&#34;LC20lb DKV0Md&#34;</span><span class="p">})</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&#34;span&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">snippet</span> <span class="o">=</span> <span class="n">a_result</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&#34;div&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;class&#34;</span><span class="p">:</span><span class="s2">&#34;IsZvec&#34;</span><span class="p">})</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&#34;span&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">original_url</span> <span class="o">=</span> <span class="n">a_result</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&#34;div&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;class&#34;</span><span class="p">:</span><span class="s2">&#34;yuRUbf&#34;</span><span class="p">})</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&#34;a&#34;</span><span class="p">)[</span><span class="s2">&#34;href&#34;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;TITLE&#39;</span><span class="p">:</span> <span class="n">title</span><span class="p">,</span> <span class="s1">&#39;SNIPPET&#39;</span><span class="p">:</span> <span class="n">snippet</span><span class="p">,</span> <span class="s1">&#39;URL&#39;</span><span class="p">:</span> <span class="n">original_url</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">extract_results</span><span class="p">(</span><span class="n">last_page</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+  <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">last_page</span><span class="p">):</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;user-agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36&#39;</span><span class="p">}</span>
+    <span class="c1"># 1ページ目（000）から収集</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">f</span><span class="s2">&#34;{url}&amp;start={page}00&#34;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+    <span class="c1"># 進捗状況のお知らせ</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&#34;{page+1}ページ目の検索結果を収集します。&#34;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&#34;html.parser&#34;</span><span class="p">)</span>
+    <span class="c1"># 「タイトル・スニペット・URL」を含むtF2Cxcクラスを抽出</span>
+    <span class="n">temp_results</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&#34;div&#34;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;class&#34;</span><span class="p">:</span><span class="s2">&#34;tF2Cxc&#34;</span><span class="p">})</span>
+    <span class="c1"># すべての検索結果に対して一つずつ抽出作業を実行</span>
+    <span class="k">for</span> <span class="n">a_result</span> <span class="ow">in</span> <span class="n">temp_results</span><span class="p">:</span>
+      <span class="n">final_result</span> <span class="o">=</span> <span class="n">extract_result_separate</span><span class="p">(</span><span class="n">a_result</span><span class="p">)</span>
+      <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">final_result</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">results</span>
+
+<span class="k">def</span> <span class="nf">get_results</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+  <span class="c1"># 日本語をURLに渡すためにエンコード</span>
+  <span class="n">convert_search_term</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">parse</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+  <span class="c1"># 検索結果1ページあたりの表示件数を100件にして検索</span>
+  <span class="n">url</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&#34;https://www.google.com/search?q={convert_search_term}&amp;num=100&#34;</span>
+  <span class="k">print</span><span class="p">(</span><span class="s2">&#34;次のURLに表示されている検索結果をすべて収集します；&#34;</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+  <span class="c1"># 検索結果が何ページあるのかを確認</span>
+  <span class="n">last_page</span> <span class="o">=</span> <span class="n">get_last_page</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+  <span class="c1"># 検索結果を抽出</span>
+  <span class="n">results</span> <span class="o">=</span> <span class="n">extract_results</span><span class="p">(</span><span class="n">last_page</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">results</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Googleのタグはときどき変わるので，それに合わせて上記のコードを変更すればいいだろう。
+Flaskと<a href="https://repl.it/" target="blank">Repl.it</a>を使って，ウェブ上で動かしてみた。</p>
+<center><div style='position:relative; padding-bottom:calc(45.21% + 44px)'><iframe src='https://gfycat.com/ifr/BabyishSleepyDiscus' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;' allowfullscreen></iframe></div><p>ウェブサーバー上で実行してみる</p></center>
+<p>むろん，検索演算子を使った検索も問題なくできる。以下は，AROUND(<em>n</em>)を利用した検索例。</p>
+<figure class="center">
+    <img src="https://drive.google.com/uc?export=view&amp;id=1aTbqAYqoW2emz0WKD_n4KmzCJsGOVEs2"/> <figcaption>
+            <h4>「防弾」と「ジミン」が共起している例</h4>
+        </figcaption>
+</figure>
+
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/python/">Python</a>
+          <a href="/tags/%E3%82%B9%E3%82%AF%E3%83%AC%E3%82%A4%E3%83%94%E3%83%B3%E3%82%B0/">スクレイピング</a>
+          <a href="/tags/google/">Google</a>
+          <a href="/tags/%E6%A4%9C%E7%B4%A2%E6%BC%94%E7%AE%97%E5%AD%90/">検索演算子</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/gesture-temporal/">
+            <span class="next-text nav-default">時間について語るとき，手はどのように動くのか</span>
+            <span class="next-text nav-mobile">次の記事へ</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'https-linglingapp-github-io';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+    
+
+    <div class="searchBox">
+      <script async src="https://cse.google.com/cse.js?cx=279458dc05d0db105"></script>
+      <div class="gcse-search" data-autoCompleteMaxCompletions="5" data-autoCompleteMatchType='any'></div>
+    </div>
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  <a href="https://linglingapp.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>Mincheol</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YEYS2GL3GY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YEYS2GL3GY');
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

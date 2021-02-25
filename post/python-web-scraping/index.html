@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Mincheol" /><meta name="description" content="Googleで何かを検索して，検索結果をすべてcsvファイルやテキストファイルで保存したい。 最近は，このような操作をしてくれるアプリケーショ" /><meta name="keywords" content="Japanese, Korean" />
+<meta name="author" content="Mincheol" /><meta name="description" content="Googleで何かを検索して，検索結果をすべてcsvファイルやテキストファイルの形で保存したい。最近は，このような操作を自動で行うウェブアプ" /><meta name="keywords" content="Japanese, Korean" />
 
 
 
@@ -40,23 +40,23 @@
 
 
 <meta property="og:title" content="Googleの検索結果をPythonでスクレイピング" />
-<meta property="og:description" content="Googleで何かを検索して，検索結果をすべてcsvファイルやテキストファイルで保存したい。 最近は，このような操作をしてくれるアプリケーショ" />
+<meta property="og:description" content="Googleで何かを検索して，検索結果をすべてcsvファイルやテキストファイルの形で保存したい。最近は，このような操作を自動で行うウェブアプ" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://linglingapp.github.io/post/python-web-scraping/" />
 <meta property="article:published_time" content="2021-02-23T01:37:56+08:00" />
 <meta property="article:modified_time" content="2021-02-23T01:37:56+08:00" />
 <meta itemprop="name" content="Googleの検索結果をPythonでスクレイピング">
-<meta itemprop="description" content="Googleで何かを検索して，検索結果をすべてcsvファイルやテキストファイルで保存したい。 最近は，このような操作をしてくれるアプリケーショ">
+<meta itemprop="description" content="Googleで何かを検索して，検索結果をすべてcsvファイルやテキストファイルの形で保存したい。最近は，このような操作を自動で行うウェブアプ">
 <meta itemprop="datePublished" content="2021-02-23T01:37:56+08:00" />
 <meta itemprop="dateModified" content="2021-02-23T01:37:56+08:00" />
-<meta itemprop="wordCount" content="1297">
+<meta itemprop="wordCount" content="1487">
 
 
 
 <meta itemprop="keywords" content="Python,スクレイピング,Google,検索演算子," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Googleの検索結果をPythonでスクレイピング"/>
-<meta name="twitter:description" content="Googleで何かを検索して，検索結果をすべてcsvファイルやテキストファイルで保存したい。 最近は，このような操作をしてくれるアプリケーショ"/>
+<meta name="twitter:description" content="Googleで何かを検索して，検索結果をすべてcsvファイルやテキストファイルの形で保存したい。最近は，このような操作を自動で行うウェブアプ"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -131,7 +131,7 @@
         <div class="post-category">
             <a href="/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/"> 日本語 </a>
             </div>
-          <span class="more-meta"> 1297 文字 </span>
+          <span class="more-meta"> 1487 文字 </span>
           <span class="more-meta"> 読了時間: 3 分 </span>
         
       </div>
@@ -139,20 +139,20 @@
 
     
     <div class="post-content">
-      <p>Googleで何かを検索して，検索結果をすべてcsvファイルやテキストファイルで保存したい。
-最近は，このような操作をしてくれるアプリケーションもある。</p>
+      <p>Googleで何かを検索して，検索結果をすべてcsvファイルやテキストファイルの形で保存したい。最近は，このような操作を自動で行うウェブアプリケーションがいくつかある。</p>
 <ul>
 <li><a href="https://www.listly.io/ko" target="blank">리스틀리 - 세상에서 가장 빠른 웹 데이터 추출 - Listly.io</a></li>
 <li><a href="https://www.octoparse.com/" target="blank">Octoparse: Web Scraping Tool &amp; Free Web Crawlers</a></li>
 </ul>
-<p>にもかかわらず，わけがあって，私は自分でスクレイピングをすることにした。簡単なスクレイピングは，プログラミング言語についての知識がほとんどなくてもできる（場合もある）。具体的には，以下のようなことをしたい。</p>
+<p>にもかかわらず，わけがあって，私は自分でスクレイピングをすることにした。簡単なスクレイピングは，プログラミング言語についての知識がほとんどなくてもできる（と思う）。ここでは，他のプログラミング言語に比べるとわかりやすく，ウェブ上に資料も豊富なPythonを使う。</p>
+<p>具体的には，以下のような流れでコードを作成したい。</p>
 <ol>
 <li>GoogleのURLと検索語を組み合わせて検索する。</li>
-<li>検索結果が画面に現れると次のページがあるのか，ないのかを確認する。</li>
+<li>検索結果が現れると，次のページがあるのか，ないのかを確認する。</li>
 <li>検索結果から，タイトル・スニペット・URLを収集する。</li>
-<li>次のページがあれば，次のページに移動して「3」で行ったことを繰り返す。</li>
+<li>次のページがあれば，上記の「3」に移動して，同じ操作を繰り返す。</li>
 </ol>
-<p>簡単簡単。このような作業をしてくれるPythonのコードは，ウェブで検索すると溢れだしている。適当に複数のコードを参考にして，以下のようなコードを作成した。</p>
+<p>今回は<a href="https://www.crummy.com/software/BeautifulSoup/" target="blank">Beautiful Soup</a>を使って，以下のようなコードを作成した。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -281,10 +281,11 @@
   <span class="k">return</span> <span class="n">results</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>Googleのタグはときどき変わるので，それに合わせて上記のコードを変更すればいいだろう。
-Flaskと<a href="https://repl.it/" target="blank">Repl.it</a>を使って，ウェブ上で動かしてみた。</p>
-<center><div style='position:relative; padding-bottom:calc(45.21% + 44px)'><iframe src='https://gfycat.com/ifr/BabyishSleepyDiscus' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;' allowfullscreen></iframe></div><p>ウェブサーバー上で実行してみる</p></center>
-<p>むろん，検索演算子を使った検索も問題なくできる。以下は，AROUND(<em>n</em>)を利用した検索例。</p>
+</div><p>ちゃんとしているウェブサイトであれば，その構造やタグなどがときどき変わる場合がある。上記のコードも，それに合わせて随時更新する必要があるが，2021年2月23日現在，問題なく動いている。</p>
+<p>最後に，ローカルだけではなく，ウェブでも利用したいので，Flaskと<a href="https://repl.it/" target="blank">Repl.it</a>を使って，ウェブ上で動かしてみた。</p>
+<center><div style='position:relative; padding-bottom:calc(45.21% + 44px)'><iframe src='https://gfycat.com/ifr/FatherlyAssuredHamster' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;' allowfullscreen></iframe></div><p>ウェブサーバー上で実行してみる</p></center>
+<p>検索が瞬時に終わるように見える。これは，resultsに保存されているダミーデータを読み込んでいるからであり，実際の検索が上記のように一瞬で終わるわけではない。</p>
+<p>むろん，「&quot;&quot;」を利用した完全一致検索以外に，AROUND(<em>n</em>)のような検索演算子を利用した検索にも対応する。</p>
 <figure class="center">
     <img src="https://drive.google.com/uc?export=view&amp;id=1aTbqAYqoW2emz0WKD_n4KmzCJsGOVEs2"/> <figcaption>
             <h4>「防弾」と「ジミン」が共起している例</h4>
